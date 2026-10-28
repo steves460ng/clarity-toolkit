@@ -2,8 +2,6 @@
 
 An unofficial, MIT-licensed ChatGPT plugin adapted from five productivity skills in [mattpocock/skills](https://github.com/mattpocock/skills).
 
-Internal instructions, templates, metadata, and development scripts are English. Questions and deliverables follow the user's language, including explicit requests for another output language.
-
 ## Included workflows
 
 | Skill | Purpose |

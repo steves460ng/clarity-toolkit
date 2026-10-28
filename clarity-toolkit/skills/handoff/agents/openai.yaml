@@ -1,0 +1,5 @@
+interface:
+  display_name: Handoff
+  short_description: Prepare a grounded conversation handoff
+policy:
+  allow_implicit_invocation: false

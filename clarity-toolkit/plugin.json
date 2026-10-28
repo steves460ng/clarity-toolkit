@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "clarity-toolkit",
+  "version": "0.1.1",
+  "license": "MIT",
+  "description": "Interview plans, prepare discovery questionnaires, explain confusing messages, and hand off conversations. An unofficial adaptation of selected Matt Pocock skills.",
+  "author": {
+    "name": "Clarity Toolkit contributors"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Clarity Toolkit",
+        "shortDescription": "Clear questions and handoffs",
+        "longDescription": "An unofficial, skills-only adaptation of five Matt Pocock workflows. Sharpen requirements through interviews, draft questionnaires, re-explain confusing messages, and prepare grounded handoffs. Internal instructions are English; responses follow your language. No external services or runtime scripts are required.",
+        "developerName": "Clarity Toolkit contributors",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Interview me to clarify my requirements.",
+          "Turn the questions I need answered into a questionnaire.",
+          "Prepare a handoff from this conversation."
+        ]
+      }
+    }
+  }
+}

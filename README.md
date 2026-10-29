@@ -18,6 +18,24 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 | `wait-what` | An explanation is hard to follow or you have lost the context. |
 | `handoff` | You need to continue the work with another person or in a new session. |
 
+### Request a workflow in natural language
+
+After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The shared `grilling` skill currently allows implicit invocation; the other four entry skills are configured for explicit user invocation.
+
+For example:
+
+> @Clarity Toolkit I want to create a lesson plan about preventing colds for children. Interview me to help organize my thoughts.
+
+This asks for an interview to clarify your own thinking, so `grilling` is a suitable procedure. It can start with the children's ages, lesson duration, and learning goals, then follow up based on your answers.
+
+By contrast, “Draft a questionnaire to distribute to parents” calls for `to-questionnaire`: a document for other people to answer.
+
+For a clearer request:
+
+> @Clarity Toolkit I want to create a lesson plan about preventing colds for children. Before writing it, ask me one question at a time to clarify the audience, learning goals, and activities.
+
+Skill selection depends on the model's interpretation and the host's plugin support; this is not a guarantee of deterministic routing. To make the intended procedure explicit, include its name, such as “Use grill-me to interview me.” These examples illustrate intended usage, not verified installed-host behavior.
+
 ## grill-me — Clarify requirements through an interview
 
 Describe what you want to build, the problem you want to solve, or a plan you are considering, and ask for an interview.

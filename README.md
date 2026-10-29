@@ -6,6 +6,35 @@ A collection of ChatGPT skills for clarifying ideas, preparing useful questions,
 
 This unofficial project adapts five skills from [Matt Pocock's skills](https://github.com/mattpocock/skills) for ChatGPT.
 
+## Add the plugin from GitHub
+
+In a ChatGPT environment with repository access and plugin creation or registration tools, you can provide this repository's URL and ask ChatGPT to add it as a private plugin. This is an assisted packaging and registration workflow, not a universal one-click GitHub installer. Availability depends on your account, workspace policy, and connected tools.
+
+### 1. Request the plugin
+
+Paste this into a conversation with the required tools available:
+
+> https://github.com/steves460ng/clarity-toolkit  
+> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the five skills were registered, and distinguish confirmed results from anything still unverified.
+
+The installable plugin source is in `clarity-toolkit/`. The repository root also contains development tools and should not be packaged wholesale as the plugin.
+
+### 2. Select the registered plugin
+
+Open the returned plugin link and follow the host's instructions to enable or select it. Start a new conversation if the host requires one for newly added plugins to become available.
+
+Registration alone does not prove that skill invocation works. Once the plugin is available in the conversation, try a short request such as:
+
+> @Clarity Toolkit Use grill-me to interview me about a lesson plan. Ask one question at a time.
+
+### 3. Reuse or update an existing plugin
+
+If you have already added Clarity Toolkit, use the existing plugin rather than registering it again. To request an update, provide this repository's URL and identify the existing plugin.
+
+Adding a plugin from this repository does not by itself establish automatic synchronization with GitHub. Later repository changes may require a separate update.
+
+If your ChatGPT environment does not provide the required tools, the URL alone cannot install the plugin. Use a supported plugin import workflow available to your account or an environment with plugin creation and registration tools.
+
 ## How to use
 
 Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then describe what you need in natural language. The examples below are prompts, not commands that require a slash-command interface.

@@ -47,6 +47,20 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 | `wait-what` | An explanation is hard to follow or you have lost the context. |
 | `handoff` | You need to continue the work with another person or in a new session. |
 
+### Edit questions and drafts
+
+Interview rounds and deliverables now request an editable writing block, so you can revise a question, select optional examples, add your own ideas, or change an earlier answer. The interview begins with open exploration rather than a recommended answer to accept. You can reply in prose, skip a question, or keep a decision open.
+
+For example:
+
+> Ask me one open question at a time in a writing block. Leave the answer blank. If choices help, make them optional and let me write my own answer. Do not recommend a solution yet.
+
+To revise a draft:
+
+> Keep the 20-minute duration, change the audience to eight-year-olds, and rewrite Q2 as an open question. Preserve the other answers.
+
+Native editing depends on the host. If a native writing block is unavailable, the plugin provides one copyable text block and states that it is not an interactive editor. Checkboxes in that fallback are text markers, not clickable controls; no autosave or automatic synchronization is implied.
+
 ### Request a workflow in natural language
 
 After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The shared `grilling` skill currently allows implicit invocation; the other four entry skills are configured for explicit user invocation.
@@ -79,7 +93,7 @@ The skill uses decisions already made in the conversation and asks about unresol
 
 You can set the pace:
 
-> Ask one question at a time. If there are options, include a recommendation and explain why.
+> Ask one open question at a time. Leave the answer blank and let me add my own ideas or change the question.
 
 To finish early:
 
@@ -93,7 +107,7 @@ A requirements summary covering the goal, main users, scope, confirmed decisions
 
 This shared interview procedure helps with decisions that depend on one another. It powers `grill-me`, and you can also request it directly in conversation.
 
-For example, it avoids settling on a login method before identifying the intended users. It starts with prerequisite decisions and uses your answers to determine what to ask next. By default, a round contains one to three questions.
+For example, it avoids settling on a login method before identifying the intended users. It starts with prerequisite decisions and uses your answers to determine what to ask next. By default, a round contains one or two questions, with open exploration before narrowing choices.
 
 ### Examples
 
@@ -108,7 +122,7 @@ Include decisions you have already made to avoid repeating them:
 
 ### What you get
 
-Recommendations and their reasons, a record of decisions you accept, and their implications for later choices. Agreement in the interview does not authorize implementation or external actions.
+An editable record of ideas, decisions you explicitly accept, open possibilities, and their implications for later choices. Advice is offered when requested or after enough exploration, rather than prefilled into your answers. Agreement in the interview does not authorize implementation or external actions.
 
 ## to-questionnaire — Prepare questions for someone else
 
@@ -185,7 +199,7 @@ It is not automatically transferred to a new conversation. Paste or provide the 
 
 ## Output format
 
-Documents are provided as Markdown in the conversation by default. In an environment with file creation tools, you can also request a `.md` file.
+Questions, explanations, summaries, and handoffs request native editable writing blocks by default. If unsupported, one copyable fenced text block is used with an explicit limitation notice. You can also request another format or, when file tools are available, a `.md` file of the latest draft.
 
 File creation and skill selection and invocation depend on the ChatGPT environment. This plugin does not require a separate MCP server or runtime scripts, and it does not provide permanent storage or automatic memory across sessions.
 

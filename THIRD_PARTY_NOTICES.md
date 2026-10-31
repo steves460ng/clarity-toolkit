@@ -11,5 +11,6 @@ Adapted source directories: skills/productivity/grill-me, grilling,
 to-questionnaire, wait-what, and handoff. Original user-only invocation policies
 are preserved. Changes include flattened paths, English shared operating rules,
 bounded interview rounds, portable skill loading, optional file delivery,
-language-aware explanations, and a structured handoff template. No other upstream
+language-aware explanations, editable writing-block delivery, open-ended interviews,
+and a structured handoff template. No other upstream
 skills, CLI hooks, or external service connections are included.

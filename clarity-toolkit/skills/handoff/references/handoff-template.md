@@ -28,3 +28,4 @@
 <Only relevant known skills, with when to use them. Omit if none.>
 
 <!-- Authoring template only. Translate headings and remove instructions from the deliverable. -->
+<!-- Present this as an editable draft. Leave unconfirmed decisions open; use the shared writing-block delivery rules. -->

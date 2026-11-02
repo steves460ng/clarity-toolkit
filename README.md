@@ -6,6 +6,10 @@ A collection of ChatGPT skills for clarifying ideas, preparing useful questions,
 
 This unofficial project adapts five skills from [Matt Pocock's skills](https://github.com/mattpocock/skills) for ChatGPT.
 
+## Using Claude?
+
+A Claude port with four skills is in [`claude/`](claude/README.md): `grill-me` (with `grilling` merged in), `to-questionnaire`, `wait-what`, and `handoff`. Each `SKILL.md` is self-contained. Ask Claude to add the skills in `claude/skills/` to your account, or copy those folders into `~/.claude/skills/` for Claude Code. The rest of this README covers the ChatGPT package.
+
 ## Add the plugin from GitHub
 
 In a ChatGPT environment with repository access and plugin creation or registration tools, you can provide this repository's URL and ask ChatGPT to add it as a private plugin. This is an assisted packaging and registration workflow, not a universal one-click GitHub installer. Availability depends on your account, workspace policy, and connected tools.

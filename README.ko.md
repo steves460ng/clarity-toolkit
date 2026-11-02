@@ -6,6 +6,10 @@
 
 [Matt Pocock의 skills](https://github.com/mattpocock/skills) 중 5개 스킬을 ChatGPT에 맞게 포팅한 비공식 프로젝트입니다.
 
+## Claude에서 쓰려면
+
+Claude용 포팅판은 [`claude/`](claude/README.md) 폴더에 있습니다. 스킬은 4개로, `grill-me`(`grilling` 통합), `to-questionnaire`, `wait-what`, `handoff`입니다. 각 `SKILL.md`는 다른 파일 없이 단독으로 동작합니다. Claude에게 `claude/skills/`의 스킬을 계정에 추가해 달라고 요청하거나, Claude Code에서는 해당 폴더를 `~/.claude/skills/`에 복사하면 됩니다. 이 README의 나머지 내용은 ChatGPT 패키지에 대한 설명입니다.
+
 ## GitHub에서 플러그인 추가하기
 
 저장소 접근 도구와 플러그인 제작·등록 도구가 제공되는 ChatGPT 환경에서는 이 저장소의 주소를 주고 비공개 플러그인으로 추가해 달라고 요청할 수 있습니다. 이는 패키징과 계정 등록을 도구로 처리하는 방식이며, 모든 ChatGPT에서 GitHub 주소만으로 바로 설치되는 기능은 아닙니다. 사용 가능 여부는 계정, 워크스페이스 정책과 연결된 도구에 따라 달라집니다.

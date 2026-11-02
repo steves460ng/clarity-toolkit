@@ -32,7 +32,7 @@ Claude decides from each skill's description whether to use it. To be sure a ski
 
 ## Testing
 
-`../tests/claude/self_simulations.md` records 25 self-simulated scenarios: the 19 from `../tests/self_simulations.json`, adapted to Claude, plus 6 Claude-specific cases on triggering and delivery. The same model wrote and graded the responses, and triggering was predicted from the descriptions rather than measured in fresh sessions. Two partial results led to the description changes listed in the record; those changes have not been re-simulated.
+`../tests/claude/self_simulations.md` records 25 self-simulated scenarios: the 19 from `../tests/self_simulations.json`, adapted to Claude, plus 6 Claude-specific cases on triggering and delivery. The same model wrote and graded the responses, and triggering was predicted from the descriptions rather than measured in fresh sessions. Two partial results led to the changes listed at the end of the record; those changes have not been re-simulated.
 
 ## License and attribution
 

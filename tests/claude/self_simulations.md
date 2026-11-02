@@ -3,7 +3,7 @@
 - 대상: 계정에 저장된 스킬 4개 — grill-me, to-questionnaire, wait-what, handoff
 - 시나리오: 원본 저장소 `tests/self_simulations.json`의 19개(S01–S13, E01–E06)를 Claude 환경에 맞게 옮김 + Claude 전용 6개(C01–C06)
 - 방법: 같은 모델이 저장된 SKILL.md를 따라 응답을 작성하고, 같은 모델이 기준에 비춰 판정함
-- 한계: 독립 모델이나 새 세션에서 실제로 실행한 것이 아님. 발동 여부(C 시리즈, T 판정)는 description을 근거로 한 예측이며 측정값이 아님. Docs 문서나 파일을 실제로 만들지는 않음
+- 한계: 독립 모델이나 새 세션에서 실제로 실행한 것이 아님. 발동 여부(C 시리즈)는 description을 근거로 한 예측이며 측정값이 아님. Docs 문서나 파일을 실제로 만들지는 않음
 
 판정: PASS = 기준 충족 / PARTIAL = 동작은 하지만 스킬 문구 때문에 어긋날 위험이 있음 / FAIL = 기준 위반
 

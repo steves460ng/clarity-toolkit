@@ -13,8 +13,15 @@ A port of Clarity Toolkit to Claude skills. It contains four skills; the ChatGPT
 
 Each `skills/<name>/SKILL.md` is a self-contained skill. Templates that the ChatGPT version kept in `references/` are inlined, so no other files are needed.
 
-- **Claude app:** give Claude this repository's URL and ask it to add the four skills in `claude/skills/` to your account. Claude shows each skill as a card; choose Save to add it.
-- **Claude Code:** copy the folders in `claude/skills/` into `~/.claude/skills/` (personal) or `.claude/skills/` (project).
+- **Claude app:** paste the request below into a conversation. Claude shows each skill as a card; choose Save to add it.
+
+  > https://github.com/steves460ng/clarity-toolkit  
+  > Add the four skills in this repository's `claude/skills/` folder (`grill-me`, `to-questionnaire`, `wait-what`, `handoff`) to my account. Use each `SKILL.md` as written without rewriting it. If a skill with the same name already exists, compare it with the repository version and tell me what changed instead of creating a duplicate.
+
+- **Claude Code:** copy the folders in `claude/skills/` into `~/.claude/skills/` (personal) or `.claude/skills/` (project), or paste this into a session:
+
+  > https://github.com/steves460ng/clarity-toolkit  
+  > Copy the four folders in this repository's `claude/skills/` into `~/.claude/skills/`. If a folder with the same name already exists, show me the differences and ask before overwriting it.
 
 Claude decides from each skill's description whether to use it. To be sure a skill runs, name it, for example "Use grill-me to interview me about this plan."
 

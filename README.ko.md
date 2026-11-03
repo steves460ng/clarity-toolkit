@@ -8,7 +8,21 @@
 
 ## Claude에서 쓰려면
 
-Claude용 포팅판은 [`claude/`](claude/README.md) 폴더에 있습니다. 스킬은 4개로, `grill-me`(`grilling` 통합), `to-questionnaire`, `wait-what`, `handoff`입니다. 각 `SKILL.md`는 다른 파일 없이 단독으로 동작합니다. Claude에게 `claude/skills/`의 스킬을 계정에 추가해 달라고 요청하거나, Claude Code에서는 해당 폴더를 `~/.claude/skills/`에 복사하면 됩니다. 이 README의 나머지 내용은 ChatGPT 패키지에 대한 설명입니다.
+Claude용 포팅판은 [`claude/`](claude/README.md) 폴더에 있습니다. 스킬은 4개로, `grill-me`(`grilling` 통합), `to-questionnaire`, `wait-what`, `handoff`입니다. 각 `SKILL.md`는 다른 파일 없이 단독으로 동작합니다. 이 README의 나머지 내용은 ChatGPT 패키지에 대한 설명입니다.
+
+**Claude 앱:** 대화에 다음 요청을 붙여 넣으세요. Claude가 스킬마다 카드를 보여 주면 저장(Save)을 눌러 추가합니다.
+
+> https://github.com/steves460ng/clarity-toolkit  
+> 이 저장소의 `claude/skills/` 폴더에 있는 스킬 4개(`grill-me`, `to-questionnaire`, `wait-what`, `handoff`)를 내 계정에 추가해 줘. 각 `SKILL.md`는 고쳐 쓰지 말고 그대로 사용해 줘. 같은 이름의 스킬이 이미 있으면 중복으로 만들지 말고 저장소 버전과 비교해서 달라진 점을 알려 줘.
+
+**Claude Code:** 세션에 다음 요청을 붙여 넣으세요.
+
+> https://github.com/steves460ng/clarity-toolkit  
+> 이 저장소의 `claude/skills/` 아래 폴더 4개를 `~/.claude/skills/`에 복사해 줘. 같은 이름의 폴더가 이미 있으면 덮어쓰기 전에 차이를 보여 주고 확인을 받아 줘.
+
+설치가 됐는지 확인하려면 새 대화에서 다음처럼 요청해 보세요.
+
+> grill-me로 교육 교안에 대한 인터뷰를 진행해 줘. 한 번에 하나씩 질문해 줘.
 
 ## GitHub에서 플러그인 추가하기
 

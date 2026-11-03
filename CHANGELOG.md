@@ -5,6 +5,7 @@
 - Add `claude/`, a Claude port with four self-contained skills: `grill-me` (with `grilling` merged in), `to-questionnaire`, `wait-what`, and `handoff`. Templates are inlined and the ChatGPT-specific writing-block and invocation-policy rules are replaced with Claude delivery rules.
 - `grill-me` also triggers on requests for help organizing thoughts through questions. `handoff` also covers continuing from a supplied handoff. `to-questionnaire` asks for a missing recipient and purpose in one message.
 - Record 25 self-simulated scenarios in `tests/claude/self_simulations.md` (23 pass, 2 partial before the fixes above; the fixes were not re-simulated).
+- Add copy-paste install requests for the Claude app and Claude Code to `README.md`, `README.ko.md`, and `claude/README.md`.
 - The ChatGPT package in `clarity-toolkit/` is unchanged.
 
 ## 0.2.0

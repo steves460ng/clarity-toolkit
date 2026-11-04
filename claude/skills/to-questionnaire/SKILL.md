@@ -18,6 +18,15 @@ Grill the send, not the subject. The user may not know the answers; that is why 
 
 This workflow drafts the questionnaire; it does not send it.
 
+## Standalone check
+
+Before delivering, read the questionnaire as the recipient, who has never seen this conversation:
+
+- Apply the user's revisions silently. Remove revision traces ("revised", "updated version") and references to the dialogue ("as discussed", "as you asked").
+- Replace pointers that only the conversation explains ("the vendor we talked about", "option two", "same as before") with the actual names or content. If a referent is unavailable, ask only if it is essential; otherwise mark it not specified. Never invent it.
+- This is semantic editing, not a banned-word list: keep domain terms such as a project called "Improvement Plan". Preserve every information need, fact, constraint, and uncertainty.
+- Keep editing tips, delivery notes, and limitations outside the questionnaire, and only when they affect how the user sends or uses it.
+
 ## Template
 
 Translate headings into the deliverable language and drop the angle-bracket guidance:

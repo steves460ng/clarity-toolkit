@@ -36,6 +36,16 @@ Keep only a one-line reply instruction outside the questions. Tell the user they
 
 If the user wants to keep or share the final summary, create it as an editable document when the session can (for example a Docs artifact); otherwise give it as one fenced Markdown block and say no file was saved. Create a .md file only when asked and file creation is available.
 
+## Final summary as a standalone deliverable
+
+Live rounds may keep question IDs, notes on revised answers, and references to earlier rounds. When you produce the final summary for keeping or sharing, make it understandable to someone who never saw the interview:
+
+- Apply revisions silently. Remove revision traces ("updated", "improved version") and references to the dialogue ("as you said", "as discussed").
+- Replace pointers that only the conversation explains ("option two", "same as Q3", "the rest is unchanged") with the actual decision or content.
+- Keep accepted decisions, proposals, and open questions in their categories. A superseded requirement may be noted as changed when the change itself matters, stated directly rather than by chat turn.
+- This is semantic editing, not a banned-word list: keep domain terms such as an "improved retention rate". Preserve facts, numbers, uncertainty, and constraints. If a referent is unavailable, mark it not specified; never invent it.
+- Deliver the summary itself, without a preface announcing that it was cleaned up.
+
 ## Operating rules
 
 - Write questions and deliverables in the user's language unless they request another; a deliverable language request does not change the conversation language.

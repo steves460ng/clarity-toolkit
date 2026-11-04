@@ -16,4 +16,9 @@ inlined; editable writing-block delivery replaced with chat rounds and
 Claude documents; per-skill invocation policy files removed; shared
 operating rules trimmed per skill; handoff extended to cover continuing
 from a supplied handoff; to-questionnaire asks for missing recipient and
-purpose in one message. Each SKILL.md ends with an attribution line.
+purpose in one message; per-skill standalone checks adapted from the
+ChatGPT package v0.4.0. Each adapted SKILL.md ends with an attribution line.
+
+meta-conv-filter is an original Clarity Toolkit skill, not adapted from the
+upstream source; its Claude version replaces file-output wording with
+Claude delivery rules.

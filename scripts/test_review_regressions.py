@@ -56,17 +56,28 @@ class ReviewRegressions(unittest.TestCase):
     def test_rebuild_removes_stale_files_and_is_reproducible(self):
         stale = self.package / 'skills/handoff/references/retired-instructions.md'
         stale.write_text('Retired instructions\n')
+        retired = self.package / 'skills/grilling'
+        retired.mkdir()
+        (retired / 'SKILL.md').write_text('Retired interview skill\n')
         with self.assertRaisesRegex(ValueError, 'Exact source inventory'):
             validate(self.package)
         result = self.run_script('build_source.py')
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertFalse(stale.exists())
+        self.assertFalse(retired.exists())
         output = self.project / 'dist/review.zip'
         first = archive(self.package, output)['sha256']
         with zipfile.ZipFile(output) as z:
             self.assertFalse(any('retired-instructions' in p for p in z.namelist()))
+            self.assertFalse(any('/skills/grilling/' in p for p in z.namelist()))
         self.assertEqual(self.run_script('build_source.py').returncode, 0)
         self.assertEqual(archive(self.package, output)['sha256'], first)
+
+    def test_implicit_interview_invocation_is_rejected(self):
+        path = self.package / 'skills/grill-me/agents/openai.yaml'
+        path.write_text(path.read_text().replace('allow_implicit_invocation: false', 'allow_implicit_invocation: true'))
+        with self.assertRaisesRegex(ValueError, 'Invocation policy: grill-me'):
+            validate(self.package)
 
     def test_failed_build_preserves_previous_package(self):
         before = (self.package / 'plugin.json').read_bytes()

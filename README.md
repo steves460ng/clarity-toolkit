@@ -4,7 +4,7 @@
 
 A collection of ChatGPT skills for clarifying ideas, preparing useful questions, understanding complex explanations, and handing work over to the next person.
 
-This unofficial project adapts five skills from [Matt Pocock's skills](https://github.com/mattpocock/skills) for ChatGPT.
+This unofficial project combines five source skills into four workflows from [Matt Pocock's skills](https://github.com/mattpocock/skills) for ChatGPT.
 
 ## Using Claude?
 
@@ -33,7 +33,7 @@ In a ChatGPT environment with repository access and plugin creation or registrat
 Paste this into a conversation with the required tools available:
 
 > https://github.com/steves460ng/clarity-toolkit  
-> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the five skills were registered, and distinguish confirmed results from anything still unverified.
+> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the four skills were registered, and distinguish confirmed results from anything still unverified.
 
 The installable plugin source is in `clarity-toolkit/`. The repository root also contains development tools and should not be packaged wholesale as the plugin.
 
@@ -53,6 +53,8 @@ Adding a plugin from this repository does not by itself establish automatic sync
 
 If your ChatGPT environment does not provide the required tools, the URL alone cannot install the plugin. Use a supported plugin import workflow available to your account or an environment with plugin creation and registration tools.
 
+Version 0.3.0 merges the former `grilling` skill into `grill-me`. Use `grill-me` for both requirements interviews and reviewing dependent decisions; the separate `grilling` entry is removed.
+
 ## How to use
 
 Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then describe what you need in natural language. The examples below are prompts, not commands that require a slash-command interface.
@@ -60,7 +62,6 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 | Skill | When to use it |
 | --- | --- |
 | `grill-me` | You have an idea but have not worked out the requirements. |
-| `grilling` | You want to examine related decisions in the right order. |
 | `to-questionnaire` | You need to organize questions for someone else. |
 | `wait-what` | An explanation is hard to follow or you have lost the context. |
 | `handoff` | You need to continue the work with another person or in a new session. |
@@ -81,13 +82,13 @@ Native editing depends on the host. If a native writing block is unavailable, th
 
 ### Request a workflow in natural language
 
-After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The shared `grilling` skill currently allows implicit invocation; the other four entry skills are configured for explicit user invocation.
+After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. All four skills are configured for explicit user invocation; ask for an interview or questions to organize your thoughts to use `grill-me`.
 
 For example:
 
 > @Clarity Toolkit I want to create a lesson plan about preventing colds for children. Interview me to help organize my thoughts.
 
-This asks for an interview to clarify your own thinking, so `grilling` is a suitable procedure. It can start with the children's ages, lesson duration, and learning goals, then follow up based on your answers.
+This asks for an interview to clarify your own thinking, so `grill-me` is the suitable skill. It can start with the children's ages, lesson duration, and learning goals, then follow up based on your answers.
 
 By contrast, “Draft a questionnaire to distribute to parents” calls for `to-questionnaire`: a document for other people to answer.
 
@@ -101,7 +102,7 @@ Skill selection depends on the model's interpretation and the host's plugin supp
 
 Describe what you want to build, the problem you want to solve, or a plan you are considering, and ask for an interview.
 
-The skill uses decisions already made in the conversation and asks about unresolved points. Follow-up questions help establish the goal, scope, constraints, and success criteria.
+The skill uses decisions already made in the conversation and asks about unresolved points. It asks prerequisite decisions first, such as intended users before login methods, with one or two focused questions per round. Follow-up questions help establish the goal, scope, constraints, and success criteria. You can revise earlier answers or keep decisions open. Confirming the summary does not authorize implementation or external actions.
 
 ### Examples
 
@@ -120,27 +121,6 @@ To finish early:
 ### What you get
 
 A requirements summary covering the goal, main users, scope, confirmed decisions, constraints, and open questions.
-
-## grilling — Examine decisions in dependency order
-
-This shared interview procedure helps with decisions that depend on one another. It powers `grill-me`, and you can also request it directly in conversation.
-
-For example, it avoids settling on a login method before identifying the intended users. It starts with prerequisite decisions and uses your answers to determine what to ask next. By default, a round contains one or two questions, with open exploration before narrowing choices.
-
-### Examples
-
-> Use the grilling procedure to examine this plan.  
-> I want to launch a paid newsletter, but I have not decided on the audience, price, or publishing schedule.  
-> Ask about the connected decisions in the order they need to be made.
-
-Include decisions you have already made to avoid repeating them:
-
-> The audience is developers with fewer than three years of experience.  
-> Keep that decision and examine the remaining choices.
-
-### What you get
-
-An editable record of ideas, decisions you explicitly accept, open possibilities, and their implications for later choices. Advice is offered when requested or after enough exploration, rather than prefilled into your answers. Agreement in the interview does not authorize implementation or external actions.
 
 ## to-questionnaire — Prepare questions for someone else
 

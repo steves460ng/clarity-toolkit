@@ -1,11 +1,11 @@
 # Clarity Toolkit
 
-Version 0.2.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
+Version 0.3.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
 
 Ask for an interview (grill-me), a discovery questionnaire (to-questionnaire),
 a clearer explanation (wait-what), or a conversation handoff (handoff).
-The grilling skill supplies the shared interview procedure. Four entry skills
-require explicit user intent; grilling retains upstream implicit invocation.
+The interview procedure is included in grill-me; no separate grilling skill
+is required. All four skills require explicit user intent.
 Natural-language requests work without assuming slash-command support.
 
 All packaged instructions, templates, and metadata are English. User-facing

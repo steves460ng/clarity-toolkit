@@ -1,13 +1,35 @@
 ---
 name: grill-me
-description: Use when the user explicitly asks for an interview to clarify or stress-test a plan, design, or set of requirements.
+description: Use when the user asks to be interviewed or grilled, or asks for help organizing their thoughts on an idea, plan, design, or requirements through questions, before a solution is chosen.
 ---
 
 # Grill Me
 
-Start a requirements interview using the bundled [grilling procedure](../grilling/SKILL.md). Read that file before beginning. If the host provides skill discovery, select this plugin's grilling skill, not an unrelated skill with the same name. Do not rely on slash-command execution or a tool named Skill. If the procedure cannot be loaded, report that limitation instead of pretending to have loaded it.
+Run a requirements interview that helps the user explore before converging. Do not implement the plan as part of this interview. Keep a provisional map of questions and dependencies, not a fixed decision tree that must be exhausted. The user may add themes, reject a premise, rewrite a question, revisit an answer, or pause without choosing a solution.
 
-Reuse goals, constraints, and answers already established in the conversation. Ask for the topic only if it is absent. Start with an open question about what the user wants to explore; do not rush to choose an implementation. Present rounds as editable writing blocks with blank answer fields, as specified in the shared delivery rules. Follow the procedure through a confirmed summary or a user-requested early stop. Do not implement the plan as part of this interview.
+1. Extract the goal, audience, success criteria, constraints, prior decisions, and unknowns from the visible context. Reuse what is already established; ask for the topic only if it is absent. Do not repeat questions the user has already answered.
+2. Separate facts to check from decisions for the user. Check accessible facts using available tools. Otherwise mark them unverified; ask the user only for information you cannot obtain and actually need.
+3. Ask prerequisite decisions first, such as who the users are before how they log in. Ask one or two focused, independent questions per round by default, honoring the user's pace. Start with open questions about their experience, goals, concerns, and possibilities before asking them to narrow choices. A pending lookup blocks only dependent questions.
+4. Put each round in an editable writing block. Give questions stable IDs and blank answer fields. Invite the user to change the questions themselves, add their own ideas, skip an item, or answer in prose. Do not ask for a complete form when a short answer is enough.
+5. Do not lead with a recommendation or phrase questions so yes accepts your preferred solution. Offer neutral, non-exhaustive examples or optional choices only when they help or the user asks. Include write-in and defer options. Multiple selections and combinations are allowed unless a real constraint makes them exclusive. Give advice when requested, or after exploration supports it, and label it as a proposal rather than a filled-in answer.
+6. Wait for the user's submitted response before opening dependent questions. A bare yes to a multi-part round does not fill blanks or select all choices. Clarify only what matters for the next step. Do not interpret silence, unchecked boxes, or skipped questions as agreement.
+7. Follow new themes and explicit revisions instead of forcing the old path. Retain stable IDs when wording changes, note which earlier decisions need revisiting, and preserve unaffected answers. A new user requirement can supersede a previously accepted one; mark the change without erasing history or assuming downstream choices are still valid.
+8. When the user wants to converge, offer an editable summary of the goal, main users, scope, accepted decisions, constraints, acceptance criteria where known, and open possibilities. Do not force premature closure or invent a decision just to finish the tree. Ask whether the user wants to revise it or use it as the current working summary. Confirmation does not authorize implementation or external actions.
+
+If the user asks to stop or summarize early, comply immediately. Provide a provisional summary and list unresolved questions without insisting on completing the tree. If they say no more questions, do not append another confirmation question. Do not promise exhaustive certainty.
+
+Use this example as the content of a writing block, translated into the conversation language. The block itself must use only a supported host mechanism or the copyable-text fallback described below:
+
+# <Topic> - exploration draft
+
+Q1. <Open question without a presumed solution>
+My answer:
+
+My own ideas or changes to this question:
+
+<If choices would help: label them as optional examples, state whether multiple selections are allowed, and include write-in, unsure, and defer choices. Never preselect a recommendation.>
+
+Maintain a compact decision record within the conversation; no local repository or persistent memory is required.
 
 ## Operating rules
 

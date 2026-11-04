@@ -8,7 +8,7 @@ import zipfile
 from pathlib import Path
 import yaml
 
-EXPECTED = {'grill-me', 'grilling', 'to-questionnaire', 'wait-what', 'handoff'}
+EXPECTED = {'grill-me', 'to-questionnaire', 'wait-what', 'handoff'}
 SEMVER = re.compile(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?')
 
 def validate(root):
@@ -46,15 +46,15 @@ def validate(root):
             target = (p.parent / link.split('#')[0]).resolve()
             check(target.is_relative_to(root) and target.is_file(), f'Contained reference: {p.relative_to(root)} -> {link}')
     skill_files = list((root / 'skills').glob('*/SKILL.md'))
-    check({p.parent.name for p in skill_files} == EXPECTED and len(skill_files) == 5, 'Exactly five portable skills')
-    check(len(list((root / 'skills').rglob('SKILL.md'))) == 5, 'No hidden or nested skills')
+    check({p.parent.name for p in skill_files} == EXPECTED and len(skill_files) == len(EXPECTED), 'Exactly four portable skills')
+    check(len(list((root / 'skills').rglob('SKILL.md'))) == len(EXPECTED), 'No hidden or nested skills')
     for p in skill_files:
         content = p.read_text()
         check(len(p.read_bytes()) <= 1024 * 1024 and content.startswith('---\n'), f'Skill size and frontmatter: {p.parent.name}')
         meta = yaml.safe_load(content.split('---', 2)[1])
         check(meta['name'] == p.parent.name and isinstance(meta.get('description'), str) and bool(meta['description'].strip()), f'Skill identity: {p.parent.name}')
         agent = yaml.safe_load((p.parent / 'agents/openai.yaml').read_text())
-        check(set(agent['policy']) == {'allow_implicit_invocation'} and type(agent['policy']['allow_implicit_invocation']) is bool and agent['policy']['allow_implicit_invocation'] == (p.parent.name == 'grilling'), f'Invocation policy: {p.parent.name}')
+        check(set(agent['policy']) == {'allow_implicit_invocation'} and type(agent['policy']['allow_implicit_invocation']) is bool and agent['policy']['allow_implicit_invocation'] is False, f'Invocation policy: {p.parent.name}')
         check(all(isinstance(agent['interface'].get(k), str) and agent['interface'][k].strip() for k in ['display_name', 'short_description']), f'Agent metadata: {p.parent.name}')
     license_text = (root / 'LICENSE').read_text()
     check('Copyright (c) 2026 Matt Pocock' in license_text and 'Permission is hereby granted' in license_text and 'THE SOFTWARE IS PROVIDED' in license_text, 'Original MIT copyright, permission and warranty notice')

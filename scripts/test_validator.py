@@ -17,9 +17,9 @@ def mutate(case, root):
     elif case == 'wrong_capabilities_type':
         manifest['extensions']['com.openai']['interface']['capabilities'] = 'Interactive'
     elif case == 'broken_reference':
-        (root / 'skills/grilling/SKILL.md').write_text((root / 'skills/grilling/SKILL.md').read_text() + '\n[Missing](missing.md)\n')
+        (root / 'skills/grill-me/SKILL.md').write_text((root / 'skills/grill-me/SKILL.md').read_text() + '\n[Missing](missing.md)\n')
     elif case == 'escaping_reference':
-        (root / 'skills/grilling/SKILL.md').write_text((root / 'skills/grilling/SKILL.md').read_text() + '\n[Outside](../../../outside.md)\n')
+        (root / 'skills/grill-me/SKILL.md').write_text((root / 'skills/grill-me/SKILL.md').read_text() + '\n[Outside](../../../outside.md)\n')
     elif case == 'string_policy':
         (root / 'skills/grill-me/agents/openai.yaml').write_text('interface:\n  display_name: Grill Me\n  short_description: Interview\npolicy:\n  allow_implicit_invocation: "false"\n')
     elif case == 'missing_skill':

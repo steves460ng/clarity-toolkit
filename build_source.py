@@ -22,13 +22,13 @@ def write(path, text):
 
 manifest = {
     '$schema': 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json',
-    'name': 'clarity-toolkit', 'version': '0.2.0', 'license': 'MIT',
+    'name': 'clarity-toolkit', 'version': '0.3.0', 'license': 'MIT',
     'description': 'Interview plans, prepare discovery questionnaires, explain confusing messages, and hand off conversations. An unofficial adaptation of selected Matt Pocock skills.',
     'author': {'name': 'Clarity Toolkit contributors'},
     'extensions': {'com.openai': {'interface': {
         'displayName': 'Clarity Toolkit',
         'shortDescription': 'Clear questions and handoffs',
-        'longDescription': 'An unofficial, skills-only adaptation of five Matt Pocock workflows. Sharpen requirements through interviews, draft questionnaires, re-explain confusing messages, and prepare grounded handoffs. Internal instructions are English; responses follow your language. No external services or runtime scripts are required.',
+        'longDescription': 'An unofficial, skills-only adaptation of four workflows from selected Matt Pocock skills. Sharpen requirements through interviews, draft questionnaires, re-explain confusing messages, and prepare grounded handoffs. Internal instructions are English; responses follow your language. No external services or runtime scripts are required.',
         'developerName': 'Clarity Toolkit contributors',
         'capabilities': [],
         'defaultPrompt': ['Interview me to clarify my requirements.', 'Turn the questions I need answered into a questionnaire.', 'Prepare a handoff from this conversation.']
@@ -46,8 +46,8 @@ Original copyright: Copyright (c) 2026 Matt Pocock
 License: MIT; the original permission and warranty notice is included in LICENSE.
 
 Adapted source directories: skills/productivity/grill-me, grilling,
-to-questionnaire, wait-what, and handoff. Original user-only invocation policies
-are preserved. Changes include flattened paths, English shared operating rules,
+to-questionnaire, wait-what, and handoff. The former grilling procedure is merged into grill-me. All four
+entry skills require explicit user intent. Changes include flattened paths, English shared operating rules,
 bounded interview rounds, portable skill loading, optional file delivery,
 language-aware explanations, editable writing-block delivery, open-ended interviews,
 and a structured handoff template. No other upstream
@@ -78,24 +78,18 @@ If the user requests a file and file creation is available, also create a UTF-8 
 '''
 
 skills = {
-'grill-me': ('Use when the user explicitly asks for an interview to clarify or stress-test a plan, design, or set of requirements.', '''# Grill Me
+'grill-me': ('Use when the user asks to be interviewed or grilled, or asks for help organizing their thoughts on an idea, plan, design, or requirements through questions, before a solution is chosen.', '''# Grill Me
 
-Start a requirements interview using the bundled [grilling procedure](../grilling/SKILL.md). Read that file before beginning. If the host provides skill discovery, select this plugin's grilling skill, not an unrelated skill with the same name. Do not rely on slash-command execution or a tool named Skill. If the procedure cannot be loaded, report that limitation instead of pretending to have loaded it.
+Run a requirements interview that helps the user explore before converging. Do not implement the plan as part of this interview. Keep a provisional map of questions and dependencies, not a fixed decision tree that must be exhausted. The user may add themes, reject a premise, rewrite a question, revisit an answer, or pause without choosing a solution.
 
-Reuse goals, constraints, and answers already established in the conversation. Ask for the topic only if it is absent. Start with an open question about what the user wants to explore; do not rush to choose an implementation. Present rounds as editable writing blocks with blank answer fields, as specified in the shared delivery rules. Follow the procedure through a confirmed summary or a user-requested early stop. Do not implement the plan as part of this interview.
-'''),
-'grilling': ('Use as the shared interview procedure when a user explicitly asks to clarify requirements or stress-test an idea, or when another Clarity Toolkit skill invokes it.', '''# Grilling
-
-Help the user explore before converging. Keep a provisional map of questions and dependencies, not a fixed decision tree that must be exhausted. The user may add themes, reject a premise, rewrite a question, revisit an answer, or pause without choosing a solution.
-
-1. Extract the goal, audience, success criteria, constraints, prior decisions, and unknowns from the visible context. Do not repeat questions the user has already answered.
+1. Extract the goal, audience, success criteria, constraints, prior decisions, and unknowns from the visible context. Reuse what is already established; ask for the topic only if it is absent. Do not repeat questions the user has already answered.
 2. Separate facts to check from decisions for the user. Check accessible facts using available tools. Otherwise mark them unverified; ask the user only for information you cannot obtain and actually need.
-3. Ask one or two focused, independent questions per round by default, honoring the user's pace. Start with open questions about their experience, goals, concerns, and possibilities before asking them to narrow choices. A pending lookup blocks only dependent questions.
+3. Ask prerequisite decisions first, such as who the users are before how they log in. Ask one or two focused, independent questions per round by default, honoring the user's pace. Start with open questions about their experience, goals, concerns, and possibilities before asking them to narrow choices. A pending lookup blocks only dependent questions.
 4. Put each round in an editable writing block. Give questions stable IDs and blank answer fields. Invite the user to change the questions themselves, add their own ideas, skip an item, or answer in prose. Do not ask for a complete form when a short answer is enough.
 5. Do not lead with a recommendation or phrase questions so yes accepts your preferred solution. Offer neutral, non-exhaustive examples or optional choices only when they help or the user asks. Include write-in and defer options. Multiple selections and combinations are allowed unless a real constraint makes them exclusive. Give advice when requested, or after exploration supports it, and label it as a proposal rather than a filled-in answer.
 6. Wait for the user's submitted response before opening dependent questions. A bare yes to a multi-part round does not fill blanks or select all choices. Clarify only what matters for the next step. Do not interpret silence, unchecked boxes, or skipped questions as agreement.
 7. Follow new themes and explicit revisions instead of forcing the old path. Retain stable IDs when wording changes, note which earlier decisions need revisiting, and preserve unaffected answers. A new user requirement can supersede a previously accepted one; mark the change without erasing history or assuming downstream choices are still valid.
-8. When the user wants to converge, offer an editable summary of the goal, scope, accepted decisions, constraints, acceptance criteria where known, and open possibilities. Do not force premature closure or invent a decision just to finish the tree. Ask whether the user wants to revise it or use it as the current working summary. Confirmation does not authorize implementation or external actions.
+8. When the user wants to converge, offer an editable summary of the goal, main users, scope, accepted decisions, constraints, acceptance criteria where known, and open possibilities. Do not force premature closure or invent a decision just to finish the tree. Ask whether the user wants to revise it or use it as the current working summary. Confirmation does not authorize implementation or external actions.
 
 If the user asks to stop or summarize early, comply immediately. Provide a provisional summary and list unresolved questions without insisting on completing the tree. If they say no more questions, do not append another confirmation question. Do not promise exhaustive certainty.
 
@@ -146,11 +140,11 @@ Create a self-contained handoff from the visible conversation and accessible art
 When a new conversation receives a handoff, treat it as context to verify, not proof of current external state or authorization for all listed next actions.
 ''')}
 
-names = {'grill-me': 'Grill Me', 'grilling': 'Grilling', 'to-questionnaire': 'To Questionnaire', 'wait-what': 'Wait What', 'handoff': 'Handoff'}
-shorts = {'grill-me': 'Clarify a plan through interview', 'grilling': 'Interview decisions in dependency order', 'to-questionnaire': 'Draft a discovery questionnaire', 'wait-what': 'Explain that again with context', 'handoff': 'Prepare a grounded conversation handoff'}
+names = {'grill-me': 'Grill Me', 'to-questionnaire': 'To Questionnaire', 'wait-what': 'Wait What', 'handoff': 'Handoff'}
+shorts = {'grill-me': 'Clarify a plan through interview', 'to-questionnaire': 'Draft a discovery questionnaire', 'wait-what': 'Explain that again with context', 'handoff': 'Prepare a grounded conversation handoff'}
 for name, (description, body) in skills.items():
     write(f'skills/{name}/SKILL.md', '---\n' + yaml.safe_dump({'name': name, 'description': description}, sort_keys=False, width=1000) + '---\n\n' + body.strip() + '\n\n' + common)
-    write(f'skills/{name}/agents/openai.yaml', yaml.safe_dump({'interface': {'display_name': names[name], 'short_description': shorts[name]}, 'policy': {'allow_implicit_invocation': name == 'grilling'}}, sort_keys=False))
+    write(f'skills/{name}/agents/openai.yaml', yaml.safe_dump({'interface': {'display_name': names[name], 'short_description': shorts[name]}, 'policy': {'allow_implicit_invocation': False}}, sort_keys=False))
 
 write('skills/to-questionnaire/references/questionnaire-template.md', '''# <Discovery questionnaire title>
 
@@ -213,12 +207,12 @@ write('skills/handoff/references/handoff-template.md', '''# <Topic> handoff
 ''')
 write('README.md', '''# Clarity Toolkit
 
-Version 0.2.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
+Version 0.3.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
 
 Ask for an interview (grill-me), a discovery questionnaire (to-questionnaire),
 a clearer explanation (wait-what), or a conversation handoff (handoff).
-The grilling skill supplies the shared interview procedure. Four entry skills
-require explicit user intent; grilling retains upstream implicit invocation.
+The interview procedure is included in grill-me; no separate grilling skill
+is required. All four skills require explicit user intent.
 Natural-language requests work without assuming slash-command support.
 
 All packaged instructions, templates, and metadata are English. User-facing

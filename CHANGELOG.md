@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+- Merge the former `grilling` interview procedure into `grill-me`, following the Claude port's self-contained interview structure. Remove the separate skill and its metadata; four explicit-intent workflows remain.
+- Include requests to organize thoughts through questions in `grill-me`'s description, and ask prerequisite decisions before dependent choices.
+- Preserve ChatGPT editable writing-block delivery, stable question IDs, answer revisions, early stopping, and the boundary between a summary and implementation authorization.
+- Update source generation, exact inventory and invocation validation, migration documentation, regression tests, and the nineteen reviewed walkthroughs. The old 0.2.0 record is retained in history. Recorded walkthroughs are illustrative self-review, not fresh installed-host execution.
+
 ## Unreleased: Claude port
 
 - Add `claude/`, a Claude port with four self-contained skills: `grill-me` (with `grilling` merged in), `to-questionnaire`, `wait-what`, and `handoff`. Templates are inlined and the ChatGPT-specific writing-block and invocation-policy rules are replaced with Claude delivery rules.

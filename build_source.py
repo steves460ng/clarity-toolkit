@@ -248,8 +248,7 @@ Version 0.4.0. An unofficial MIT-licensed adaptation of selected Matt Pocock ski
 
 Ask for an interview (grill-me), a discovery questionnaire (to-questionnaire),
 a clearer explanation (wait-what), or a conversation handoff (handoff).
-The interview procedure is included in grill-me; no separate grilling skill
-is required. The four adapted workflows require explicit user intent.
+The four adapted workflows require explicit user intent.
 Meta-conv-filter can run implicitly for standalone final deliverables and can
 also be requested directly. It removes revision traces, conversation references,
 and missing-context dependencies while preserving substantive facts and limits.

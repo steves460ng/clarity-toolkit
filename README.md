@@ -4,11 +4,11 @@
 
 A collection of ChatGPT skills for clarifying ideas, preparing useful questions, understanding complex explanations, and handing work over to the next person.
 
-This unofficial project combines five source skills into four workflows and adds an original conversation-context filter from [Matt Pocock's skills](https://github.com/mattpocock/skills) for ChatGPT.
+This unofficial ChatGPT project contains four workflows adapted from five of [Matt Pocock's skills](https://github.com/mattpocock/skills) and an original conversation-context filter.
 
 ## Using Claude?
 
-A Claude port with five skills is in [`claude/`](claude/README.md): `grill-me` (with `grilling` merged in), `to-questionnaire`, `wait-what`, `handoff`, and `meta-conv-filter`. Each `SKILL.md` is self-contained. The rest of this README covers the ChatGPT package.
+A Claude port with five skills is in [`claude/`](claude/README.md): `grill-me`, `to-questionnaire`, `wait-what`, `handoff`, and `meta-conv-filter`. Each `SKILL.md` is self-contained. The rest of this README covers the ChatGPT package.
 
 **Claude app:** paste this into a conversation. Claude shows each skill as a card; choose Save to add it.
 
@@ -53,8 +53,6 @@ Adding a plugin from this repository does not by itself establish automatic sync
 
 If your ChatGPT environment does not provide the required tools, the URL alone cannot install the plugin. Use a supported plugin import workflow available to your account or an environment with plugin creation and registration tools.
 
-Version 0.3.0 merges the former `grilling` skill into `grill-me`. Use `grill-me` for both requirements interviews and reviewing dependent decisions; the separate `grilling` entry is removed.
-
 ## How to use
 
 Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then describe what you need in natural language. The examples below are prompts, not commands that require a slash-command interface.
@@ -69,7 +67,7 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 
 ### Edit questions and drafts
 
-Interview rounds and deliverables now request an editable writing block, so you can revise a question, select optional examples, add your own ideas, or change an earlier answer. The interview begins with open exploration rather than a recommended answer to accept. You can reply in prose, skip a question, or keep a decision open.
+Interview rounds and deliverables request an editable writing block, so you can revise a question, select optional examples, add your own ideas, or change an earlier answer. The interview begins with open exploration rather than a recommended answer to accept. You can reply in prose, skip a question, or keep a decision open.
 
 For example:
 

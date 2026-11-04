@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased: Claude port 0.4.0
+
+- Port `meta-conv-filter` to `claude/skills/`, with Claude delivery rules (edit an existing Docs artifact when asked, otherwise a new editable document or one Markdown block) and a description that names the triggering requests.
+- Add a standalone check to the four existing Claude skills, worded per skill: `grill-me` final summaries, `to-questionnaire` and `handoff` deliverables, and `wait-what` versions the user asks to share. Live interview rounds keep question IDs and revision notes.
+- Update install requests in `README.md`, `README.ko.md`, and `claude/README.md` to five skills. The 0.4.0 Claude changes have not been self-simulated.
+
 ## 0.4.0
 
 - Add the original `meta-conv-filter` skill: remove revision traces and user-AI dialogue references, and resolve all dependencies on unseen conversation context in standalone deliverables.

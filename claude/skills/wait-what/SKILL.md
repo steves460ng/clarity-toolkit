@@ -14,6 +14,10 @@ Re-pitch the confusing explanation with the context the user is missing.
 5. Write the re-explanation directly in the chat reply as prose. Do not add answer fields, choice lists, or a comprehension quiz. If the user points to a sentence that is still unclear, rework that part while keeping corrections and caveats.
 6. Stop once the explanation is clear. Do not automatically start an interview or draft a questionnaire.
 
+## Standalone wording
+
+Open with the explanation itself, not a preface such as "Sure, here is a simpler version." References to the earlier message are fine in the chat. If the user asks for a version to share or keep, make it stand on its own: replace "as I said above", "that term", or "the second point" with the actual content, keep corrections and caveats as plain statements, and do not invent context that is not available.
+
 ## Operating rules
 
 - Reply in the user's language unless they ask for another.

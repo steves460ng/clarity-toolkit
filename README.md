@@ -8,17 +8,17 @@ This unofficial project combines five source skills into four workflows and adds
 
 ## Using Claude?
 
-A Claude port with four skills is in [`claude/`](claude/README.md): `grill-me` (with `grilling` merged in), `to-questionnaire`, `wait-what`, and `handoff`. Each `SKILL.md` is self-contained. The rest of this README covers the ChatGPT package.
+A Claude port with five skills is in [`claude/`](claude/README.md): `grill-me` (with `grilling` merged in), `to-questionnaire`, `wait-what`, `handoff`, and `meta-conv-filter`. Each `SKILL.md` is self-contained. The rest of this README covers the ChatGPT package.
 
 **Claude app:** paste this into a conversation. Claude shows each skill as a card; choose Save to add it.
 
 > https://github.com/steves460ng/clarity-toolkit  
-> Add the four skills in this repository's `claude/skills/` folder (`grill-me`, `to-questionnaire`, `wait-what`, `handoff`) to my account. Use each `SKILL.md` as written without rewriting it. If a skill with the same name already exists, compare it with the repository version and tell me what changed instead of creating a duplicate.
+> Add the five skills in this repository's `claude/skills/` folder (`grill-me`, `to-questionnaire`, `wait-what`, `handoff`, `meta-conv-filter`) to my account. Use each `SKILL.md` as written without rewriting it. If a skill with the same name already exists, compare it with the repository version and tell me what changed instead of creating a duplicate.
 
 **Claude Code:** paste this into a session.
 
 > https://github.com/steves460ng/clarity-toolkit  
-> Copy the four folders in this repository's `claude/skills/` into `~/.claude/skills/`. If a folder with the same name already exists, show me the differences and ask before overwriting it.
+> Copy the five folders in this repository's `claude/skills/` into `~/.claude/skills/`. If a folder with the same name already exists, show me the differences and ask before overwriting it.
 
 To check that it works, start a new conversation and try:
 

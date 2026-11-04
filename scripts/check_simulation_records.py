@@ -19,7 +19,8 @@ if not expected or changed:
     message = 'Stale simulation evidence; review required: ' + ', '.join(changed)
     (ROOT / 'reports/simulation-record-check.json').write_text(json.dumps({'record_integrity': 'failed', 'evidence_matches_current_behavior': False, 'error': message}, indent=2) + '\n', encoding='utf-8')
     raise SystemExit(message)
-require(len(cases) == 19 and len({c['id'] for c in cases}) == 19, 'Expected nineteen unique cases')
+expected_ids = {f'S{i:02}' for i in range(1, 14)} | {f'E{i:02}' for i in range(1, 7)} | {f'M{i:02}' for i in range(1, 9)}
+require(len(cases) == len(expected_ids) and {c['id'] for c in cases} == expected_ids, 'Expected twenty-seven unique cases')
 for case in cases:
     require(case['context'] and case['focus'] and case['turns'], 'Incomplete scenario')
     require((ROOT / 'clarity-toolkit/skills' / case['skill'] / 'SKILL.md').is_file(), 'Unknown skill')
@@ -27,6 +28,8 @@ for case in cases:
     require(case['review']['passed'] is True and case['review']['reason'], 'Review required')
 outputs = {c['id']: '\n'.join(t['assistant'] for t in c['turns']) for c in cases}
 for case in cases:
+    if case['skill'] == 'meta-conv-filter':
+        continue
     for turn in case['turns']:
         require(turn['assistant'].count('```markdown\n') == 1 and turn['assistant'].count('```') == 2, 'Each recorded fallback turn needs one complete text block: ' + case['id'])
 require(all('[x]' not in outputs[k].lower() for k in ['S01', 'E01', 'E02']), 'Examples must not preselect answers')
@@ -36,6 +39,14 @@ require('SYNTHETIC_DEMO_TOKEN' not in outputs['S10'] and '[REDACTED]' in outputs
 require('?' not in outputs['S04'] and '\uff1f' not in outputs['S04'], 'Stop example failed')
 require(outputs['S07'].isascii(), 'English example failed')
 require('http' not in outputs['S11'], 'No-file example failed')
+require('개선된' not in outputs['M01'] and '반영했습니다' not in outputs['M01'], 'Revision trace example failed')
+require('이메일 로그인' in outputs['M02'] and '20분' in outputs['M02'] and '두 번째' not in outputs['M02'], 'Concrete referents example failed')
+require('미정' in outputs['M03'] and '500' not in outputs['M03'], 'Missing context example failed')
+require('0.3.0' in outputs['M04'] and '0.4.0' in outputs['M04'], 'Requested history example failed')
+require('미검증' in outputs['M05'] and '추정' in outputs['M05'], 'Material limits example failed')
+require('https://example.org/spec' in outputs['M06'] and '구현 전' in outputs['M06'], 'Handoff provenance example failed')
+require('8세' in outputs['M07'] and '12명' in outputs['M07'] and '20분' in outputs['M07'] and '5세' not in outputs['M07'], 'Latest decision example failed')
+require('개선 계획' in outputs['M08'] and '개선된 수질' in outputs['M08'], 'Substantive improvement language example failed')
 result = {
     'record_integrity': 'passed',
     'evidence_matches_current_behavior': True,

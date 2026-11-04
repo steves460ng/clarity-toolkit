@@ -17,7 +17,7 @@ class ReviewRegressions(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(prefix='clarity-regression-')
         self.addCleanup(self.temporary.cleanup)
         self.project = Path(self.temporary.name) / 'project'
-        shutil.copytree(SOURCE, self.project, ignore=shutil.ignore_patterns('__pycache__', 'dist'))
+        shutil.copytree(SOURCE, self.project, ignore=shutil.ignore_patterns('__pycache__', 'dist', '.git', 'clarity-regression-*'))
         self.package = self.project / 'clarity-toolkit'
 
     def run_script(self, name, optimized=False):
@@ -78,6 +78,18 @@ class ReviewRegressions(unittest.TestCase):
         path.write_text(path.read_text().replace('allow_implicit_invocation: false', 'allow_implicit_invocation: true'))
         with self.assertRaisesRegex(ValueError, 'Invocation policy: grill-me'):
             validate(self.package)
+
+    def test_filter_keeps_implicit_invocation(self):
+        path = self.package / 'skills/meta-conv-filter/agents/openai.yaml'
+        path.write_text(path.read_text().replace('allow_implicit_invocation: true', 'allow_implicit_invocation: false'))
+        with self.assertRaisesRegex(ValueError, 'Invocation policy: meta-conv-filter'):
+            validate(self.package)
+
+    def test_missing_filter_invalidates_inventory_and_evidence(self):
+        shutil.rmtree(self.package / 'skills/meta-conv-filter')
+        with self.assertRaisesRegex(ValueError, 'Exact source inventory'):
+            validate(self.package)
+        self.assertNotEqual(self.run_script('scripts/check_simulation_records.py').returncode, 0)
 
     def test_failed_build_preserves_previous_package(self):
         before = (self.package / 'plugin.json').read_bytes()

@@ -1,6 +1,6 @@
 # Clarity Toolkit for Claude
 
-A port of Clarity Toolkit to Claude skills. It contains four skills. The ChatGPT package in `../clarity-toolkit/` also uses four skills as of 0.3.0.
+A port of Clarity Toolkit to Claude skills. It contains four skills. The ChatGPT package in `../clarity-toolkit/` merged its interview skills in 0.3.0 and adds a fifth skill, meta-conv-filter, in 0.4.0. The Claude port remains at four skills.
 
 | Skill | What it does | When it is used |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ Claude decides from each skill's description whether to use it. To be sure a ski
 
 | ChatGPT package | Claude port |
 | --- | --- |
-| Four skills; `grilling` is merged into `grill-me` | Same four-skill structure |
+| Five skills; includes meta-conv-filter and standalone-output checks | Four skills; no meta-conv-filter port |
 | Templates in `references/` | Templates inlined in each SKILL.md |
 | "Native editable writing block", with a copyable text block as fallback | Interview rounds are written in the chat; questionnaires and handoffs become an editable Claude document when the session can create one, otherwise one copyable Markdown block |
 | `agents/openai.yaml` sets implicit invocation per skill | No equivalent; when a skill is used is set by its `description` |

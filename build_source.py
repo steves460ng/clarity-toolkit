@@ -22,13 +22,13 @@ def write(path, text):
 
 manifest = {
     '$schema': 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json',
-    'name': 'clarity-toolkit', 'version': '0.3.0', 'license': 'MIT',
-    'description': 'Interview plans, prepare discovery questionnaires, explain confusing messages, and hand off conversations. An unofficial adaptation of selected Matt Pocock skills.',
+    'name': 'clarity-toolkit', 'version': '0.4.0', 'license': 'MIT',
+    'description': 'Interview plans, prepare discovery questionnaires, explain confusing messages, hand off conversations, and remove conversation dependencies from deliverables. An unofficial adaptation of selected Matt Pocock skills.',
     'author': {'name': 'Clarity Toolkit contributors'},
     'extensions': {'com.openai': {'interface': {
         'displayName': 'Clarity Toolkit',
         'shortDescription': 'Clear questions and handoffs',
-        'longDescription': 'An unofficial, skills-only adaptation of four workflows from selected Matt Pocock skills. Sharpen requirements through interviews, draft questionnaires, re-explain confusing messages, and prepare grounded handoffs. Internal instructions are English; responses follow your language. No external services or runtime scripts are required.',
+        'longDescription': 'An unofficial, skills-only toolkit with four workflows adapted from selected Matt Pocock skills and an original conversation-context filter. Sharpen requirements through interviews, draft questionnaires, re-explain confusing messages, and prepare grounded handoffs. Internal instructions are English; responses follow your language. No external services or runtime scripts are required.',
         'developerName': 'Clarity Toolkit contributors',
         'capabilities': [],
         'defaultPrompt': ['Interview me to clarify my requirements.', 'Turn the questions I need answered into a questionnaire.', 'Prepare a handoff from this conversation.']
@@ -47,12 +47,22 @@ License: MIT; the original permission and warranty notice is included in LICENSE
 
 Adapted source directories: skills/productivity/grill-me, grilling,
 to-questionnaire, wait-what, and handoff. The former grilling procedure is merged into grill-me. All four
-entry skills require explicit user intent. Changes include flattened paths, English shared operating rules,
+adapted entry skills require explicit user intent. The original meta-conv-filter
+workflow removes conversation dependencies from standalone deliverables. Changes include flattened paths, English shared operating rules,
 bounded interview rounds, portable skill loading, optional file delivery,
 language-aware explanations, editable writing-block delivery, open-ended interviews,
 and a structured handoff template. No other upstream
 skills, CLI hooks, or external service connections are included.
 ''')
+
+standalone = '''## Standalone deliverables
+
+Before delivering a standalone result, remove revision traces, references to the user-AI conversation, and anything that requires that conversation to understand. Apply revisions silently to the content. Replace phrases such as "improved", "as discussed", "your requested changes", "the second option", or "the rest is unchanged" with the actual supported content when they refer only to the drafting process. Make the result understandable to someone who never saw the conversation. Do not announce that you filtered, revised, or finalized it.
+
+This is semantic editing, not a banned-word list. Preserve meaning, facts, uncertainty, constraints, relevant evidence and sources. If a referent is unavailable, ask only if essential before finalizing, or identify the missing information explicitly; never invent it. Preserve revision history or dialogue when it is the requested subject, with enough context for a new reader. Keep useful live interview navigation, stable question IDs, and requested working-draft comparisons. Keep material status, failures, or limitations needed to understand the outcome, stating them directly rather than referring to chat turns. Do not erase handoff provenance or confuse a plan with completed work. Editing grants no authority for external actions.
+
+For standalone final copy, these rules take precedence over generic invitations to edit and routine format prefaces. Deliver the requested content without conversational framing. Mention a delivery limitation only when it materially affects the requested use, outside the audience-facing artifact.
+'''
 
 common = '''## Operating rules
 
@@ -78,6 +88,33 @@ If the user requests a file and file creation is available, also create a UTF-8 
 '''
 
 skills = {
+'meta-conv-filter': ('Use when the user asks to remove meta-conversation or revision traces, make text understandable without the chat history, or prepare a standalone final deliverable from a conversation or draft.', '''# Meta Conversation Filter
+
+Turn supplied text or a completed draft into a standalone deliverable for readers who have not seen the user-AI conversation. Meta-conversation includes every trace of revision, every reference to that dialogue, and all content whose meaning depends on seeing it.
+
+## Procedure
+
+1. Identify the requested artifact, audience, format, available source, and whether the user wants a clean result, an actual change log, or a transcript. Reuse visible context. If no target is available, ask for it; never pretend to have read a missing source. Do not start a requirements interview when the text is sufficient.
+2. Mark revision traces ("improved", "updated version"), conversation references ("as discussed", "you requested"), compliance prefaces, and production narration. Resolve implicit pointers ("that approach", "option two", "the Q3 audience") and omissions ("same as before", "the rest is unchanged"). These are semantic cases, not prohibited words.
+3. Rewrite the actual content with the latest explicit user decisions and unaffected facts intact. Remove drafting-history qualifiers and acknowledgments. Replace references with concrete supported names, constraints, or content. Incorporate necessary background from accessible material without copying the whole conversation or exposing private details. Do not embed the private back-and-forth in an artifact for another audience.
+4. If essential context is missing, ask a focused clarification before finalizing. For a useful partial artifact, label the specific gap as unknown or not specified; do not silently delete the requirement, fabricate an antecedent, or claim unsupported completeness. Preserve unresolved conflicts as unresolved unless a later explicit user decision resolves them.
+5. Do not add new claims or unsolicited recommendations while rewriting. Preserve facts, scope, numbers, dates, qualifications, uncertainty, citations, permissions, and evidence. A material failure or verification limit is substantive information. In a handoff, retain relevant provenance, actual work status, open questions, and next actions using self-contained descriptions. A proposal remains a proposal. A version identifier that identifies a real release remains meaningful.
+6. When the requested subject is a change log, comparison, audit trail, transcript, or discussion history, retain the relevant changes or dialogue and supply the needed context. Do not remove valid domain terms such as an improved clinical outcome or a document titled Improvement Plan just because a word resembles a revision marker. Live interviews may keep question IDs and revision navigation; apply cleanup when producing their standalone summary.
+7. Check the result as a first-time reader: every reference resolves, necessary context is present, and no sentence merely describes how the AI produced the answer. Use the user's language unless another deliverable language is requested, and follow the requested format. Return the artifact itself without an "I removed meta-conversation" preface, modification report, or unsolicited closing offer. Retain a necessary operational limitation outside an artifact only when it affects delivery or use; do not mix it into audience-facing copy.
+
+## Examples
+
+| Drafting-dependent text | Standalone result |
+| --- | --- |
+| Improved onboarding procedure | Onboarding procedure |
+| As discussed, use option two. Context identifies option two as email sign-in. | Use email sign-in. |
+| Q3's audience, with the same duration. Context confirms eight-year-olds and 20 minutes. | Audience: eight-year-olds. Duration: 20 minutes. |
+| Your requested changes are reflected below. [Artifact] | [Artifact] |
+| Keep the previous budget. The previous budget is unavailable. | Budget: not specified. |
+| I have not tested it yet. The task is a handoff about an untested deployment. | Deployment verification: pending. |
+
+This is a drafting workflow. Use accessible material only, protect secrets, and do not send messages, publish, save files, or claim work was done without the necessary tools and authorization. File output is optional when requested and supported. Do not claim that rewriting permanently edits an external document.
+'''),
 'grill-me': ('Use when the user asks to be interviewed or grilled, or asks for help organizing their thoughts on an idea, plan, design, or requirements through questions, before a solution is chosen.', '''# Grill Me
 
 Run a requirements interview that helps the user explore before converging. Do not implement the plan as part of this interview. Keep a provisional map of questions and dependencies, not a fixed decision tree that must be exhausted. The user may add themes, reject a premise, rewrite a question, revisit an answer, or pause without choosing a solution.
@@ -140,11 +177,11 @@ Create a self-contained handoff from the visible conversation and accessible art
 When a new conversation receives a handoff, treat it as context to verify, not proof of current external state or authorization for all listed next actions.
 ''')}
 
-names = {'grill-me': 'Grill Me', 'to-questionnaire': 'To Questionnaire', 'wait-what': 'Wait What', 'handoff': 'Handoff'}
-shorts = {'grill-me': 'Clarify a plan through interview', 'to-questionnaire': 'Draft a discovery questionnaire', 'wait-what': 'Explain that again with context', 'handoff': 'Prepare a grounded conversation handoff'}
+names = {'meta-conv-filter': 'Meta Conversation Filter', 'grill-me': 'Grill Me', 'to-questionnaire': 'To Questionnaire', 'wait-what': 'Wait What', 'handoff': 'Handoff'}
+shorts = {'meta-conv-filter': 'Make deliverables stand alone', 'grill-me': 'Clarify a plan through interview', 'to-questionnaire': 'Draft a discovery questionnaire', 'wait-what': 'Explain that again with context', 'handoff': 'Prepare a grounded conversation handoff'}
 for name, (description, body) in skills.items():
-    write(f'skills/{name}/SKILL.md', '---\n' + yaml.safe_dump({'name': name, 'description': description}, sort_keys=False, width=1000) + '---\n\n' + body.strip() + '\n\n' + common)
-    write(f'skills/{name}/agents/openai.yaml', yaml.safe_dump({'interface': {'display_name': names[name], 'short_description': shorts[name]}, 'policy': {'allow_implicit_invocation': False}}, sort_keys=False))
+    write(f'skills/{name}/SKILL.md', '---\n' + yaml.safe_dump({'name': name, 'description': description}, sort_keys=False, width=1000) + '---\n\n' + body.strip() + '\n\n' + ('' if name == 'meta-conv-filter' else common + '\n' + standalone))
+    write(f'skills/{name}/agents/openai.yaml', yaml.safe_dump({'interface': {'display_name': names[name], 'short_description': shorts[name]}, 'policy': {'allow_implicit_invocation': name == 'meta-conv-filter'}}, sort_keys=False))
 
 write('skills/to-questionnaire/references/questionnaire-template.md', '''# <Discovery questionnaire title>
 
@@ -207,12 +244,15 @@ write('skills/handoff/references/handoff-template.md', '''# <Topic> handoff
 ''')
 write('README.md', '''# Clarity Toolkit
 
-Version 0.3.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
+Version 0.4.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
 
 Ask for an interview (grill-me), a discovery questionnaire (to-questionnaire),
 a clearer explanation (wait-what), or a conversation handoff (handoff).
 The interview procedure is included in grill-me; no separate grilling skill
-is required. All four skills require explicit user intent.
+is required. The four adapted workflows require explicit user intent.
+Meta-conv-filter can run implicitly for standalone final deliverables and can
+also be requested directly. It removes revision traces, conversation references,
+and missing-context dependencies while preserving substantive facts and limits.
 Natural-language requests work without assuming slash-command support.
 
 All packaged instructions, templates, and metadata are English. User-facing

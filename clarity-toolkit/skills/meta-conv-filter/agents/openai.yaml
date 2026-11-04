@@ -1,0 +1,5 @@
+interface:
+  display_name: Meta Conversation Filter
+  short_description: Make deliverables stand alone
+policy:
+  allow_implicit_invocation: true

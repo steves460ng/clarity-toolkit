@@ -4,7 +4,7 @@
 
 A collection of ChatGPT skills for clarifying ideas, preparing useful questions, understanding complex explanations, and handing work over to the next person.
 
-This unofficial project combines five source skills into four workflows from [Matt Pocock's skills](https://github.com/mattpocock/skills) for ChatGPT.
+This unofficial project combines five source skills into four workflows and adds an original conversation-context filter from [Matt Pocock's skills](https://github.com/mattpocock/skills) for ChatGPT.
 
 ## Using Claude?
 
@@ -33,7 +33,7 @@ In a ChatGPT environment with repository access and plugin creation or registrat
 Paste this into a conversation with the required tools available:
 
 > https://github.com/steves460ng/clarity-toolkit  
-> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the four skills were registered, and distinguish confirmed results from anything still unverified.
+> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the five skills were registered, and distinguish confirmed results from anything still unverified.
 
 The installable plugin source is in `clarity-toolkit/`. The repository root also contains development tools and should not be packaged wholesale as the plugin.
 
@@ -61,6 +61,7 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 
 | Skill | When to use it |
 | --- | --- |
+| `meta-conv-filter` | You need a result that stands alone without drafting history or the user-AI conversation. |
 | `grill-me` | You have an idea but have not worked out the requirements. |
 | `to-questionnaire` | You need to organize questions for someone else. |
 | `wait-what` | An explanation is hard to follow or you have lost the context. |
@@ -82,7 +83,7 @@ Native editing depends on the host. If a native writing block is unavailable, th
 
 ### Request a workflow in natural language
 
-After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. All four skills are configured for explicit user invocation; ask for an interview or questions to organize your thoughts to use `grill-me`.
+After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The four adapted workflows require explicit user invocation; meta-conv-filter also supports implicit final-deliverable cleanup; ask for an interview or questions to organize your thoughts to use `grill-me`.
 
 For example:
 
@@ -97,6 +98,12 @@ For a clearer request:
 > @Clarity Toolkit I want to create a lesson plan about preventing colds for children. Before writing it, ask me one question at a time to clarify the audience, learning goals, and activities.
 
 Skill selection depends on the model's interpretation and the host's plugin support; this is not a guarantee of deterministic routing. To make the intended procedure explicit, include its name, such as “Use grill-me to interview me.” These examples illustrate intended usage, not verified installed-host behavior.
+
+## meta-conv-filter - Make results understandable without the conversation
+
+Meta-conversation includes revision traces, user-AI dialogue references, and anything that only makes sense after reading that dialogue. The filter removes drafting prefaces and rewrites dependent references with the supported content. It runs as a final check for standalone deliverables from the four existing workflows, and you can request it directly: "Use meta-conv-filter to make this document stand alone."
+
+For example, "the improved plan using option two" becomes a plan naming the actual selected approach. Missing information stays unknown or is clarified; facts, uncertainty, sources, work status, and meaningful release versions are preserved. Requested change logs and transcripts retain their history with enough context. Live interview IDs and navigation remain usable. The filter returns the result without an announcement that it removed meta-conversation.
 
 ## grill-me — Clarify requirements through an interview
 

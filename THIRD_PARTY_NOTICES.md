@@ -9,7 +9,8 @@ License: MIT; the original permission and warranty notice is included in LICENSE
 
 Adapted source directories: skills/productivity/grill-me, grilling,
 to-questionnaire, wait-what, and handoff. The former grilling procedure is merged into grill-me. All four
-entry skills require explicit user intent. Changes include flattened paths, English shared operating rules,
+adapted entry skills require explicit user intent. The original meta-conv-filter
+workflow removes conversation dependencies from standalone deliverables. Changes include flattened paths, English shared operating rules,
 bounded interview rounds, portable skill loading, optional file delivery,
 language-aware explanations, editable writing-block delivery, open-ended interviews,
 and a structured handoff template. No other upstream

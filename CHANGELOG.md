@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+
+- Add the original `meta-conv-filter` skill: remove revision traces and user-AI dialogue references, and resolve all dependencies on unseen conversation context in standalone deliverables.
+- Apply standalone-output checks to the four existing ChatGPT workflows. Keep live interview navigation and requested history, substantive facts, provenance, uncertainty, and operational limits. Never fabricate missing context.
+- Allow implicit invocation only for meta-conv-filter; preserve explicit-intent invocation for the four adapted workflows.
+- Update generation, package metadata, documentation, regression tests, and reviewed examples. The Claude port remains unchanged.
+
 ## 0.3.0
 
 - Merge the former `grilling` interview procedure into `grill-me`, following the Claude port's self-contained interview structure. Remove the separate skill and its metadata; four explicit-intent workflows remain.

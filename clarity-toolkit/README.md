@@ -1,11 +1,14 @@
 # Clarity Toolkit
 
-Version 0.3.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
+Version 0.4.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
 
 Ask for an interview (grill-me), a discovery questionnaire (to-questionnaire),
 a clearer explanation (wait-what), or a conversation handoff (handoff).
 The interview procedure is included in grill-me; no separate grilling skill
-is required. All four skills require explicit user intent.
+is required. The four adapted workflows require explicit user intent.
+Meta-conv-filter can run implicitly for standalone final deliverables and can
+also be requested directly. It removes revision traces, conversation references,
+and missing-context dependencies while preserving substantive facts and limits.
 Natural-language requests work without assuming slash-command support.
 
 All packaged instructions, templates, and metadata are English. User-facing

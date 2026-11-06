@@ -1,0 +1,5 @@
+interface:
+  display_name: Critique and Revise
+  short_description: Verify and correct an answer
+policy:
+  allow_implicit_invocation: false

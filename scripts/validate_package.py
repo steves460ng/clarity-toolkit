@@ -8,7 +8,7 @@ import zipfile
 from pathlib import Path
 import yaml
 
-EXPECTED = {'meta-conv-filter', 'grill-me', 'to-questionnaire', 'wait-what', 'handoff'}
+EXPECTED = {'meta-conv-filter', 'grill-me', 'to-questionnaire', 'wait-what', 'handoff', 'critique-revise'}
 SEMVER = re.compile(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?')
 
 def validate(root):
@@ -46,7 +46,7 @@ def validate(root):
             target = (p.parent / link.split('#')[0]).resolve()
             check(target.is_relative_to(root) and target.is_file(), f'Contained reference: {p.relative_to(root)} -> {link}')
     skill_files = list((root / 'skills').glob('*/SKILL.md'))
-    check({p.parent.name for p in skill_files} == EXPECTED and len(skill_files) == len(EXPECTED), 'Exactly five portable skills')
+    check({p.parent.name for p in skill_files} == EXPECTED and len(skill_files) == len(EXPECTED), 'Exactly six portable skills')
     check(len(list((root / 'skills').rglob('SKILL.md'))) == len(EXPECTED), 'No hidden or nested skills')
     for p in skill_files:
         content = p.read_text()

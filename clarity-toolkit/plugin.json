@@ -1,9 +1,9 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "clarity-toolkit",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "MIT",
-  "description": "Interview plans, prepare discovery questionnaires, explain confusing messages, hand off conversations, and remove conversation dependencies from deliverables. An unofficial adaptation of selected Matt Pocock skills.",
+  "description": "Interview plans, prepare questionnaires, explain confusing messages, hand off context, remove conversation dependencies, and critically verify and correct answers.",
   "author": {
     "name": "Clarity Toolkit contributors"
   },
@@ -11,13 +11,13 @@
     "com.openai": {
       "interface": {
         "displayName": "Clarity Toolkit",
-        "shortDescription": "Clear questions and handoffs",
-        "longDescription": "An unofficial, skills-only toolkit with four workflows adapted from selected Matt Pocock skills and an original conversation-context filter. Sharpen requirements through interviews, draft questionnaires, re-explain confusing messages, and prepare grounded handoffs. Internal instructions are English; responses follow your language. No external services or runtime scripts are required.",
+        "shortDescription": "Clarify, review and hand off",
+        "longDescription": "An unofficial, skills-only toolkit with four workflows adapted from selected Matt Pocock skills, a conversation-context filter, and an original critical-review skill. Interview requirements, draft questionnaires, re-explain messages, prepare handoffs, and verify and correct answers. Instructions are in English; responses follow your language. No runtime scripts required.",
         "developerName": "Clarity Toolkit contributors",
         "capabilities": [],
         "defaultPrompt": [
           "Interview me to clarify my requirements.",
-          "Turn the questions I need answered into a questionnaire.",
+          "Critically review your previous answer and correct errors.",
           "Prepare a handoff from this conversation."
         ]
       }

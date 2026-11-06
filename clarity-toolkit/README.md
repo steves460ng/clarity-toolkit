@@ -1,10 +1,11 @@
 # Clarity Toolkit
 
-Version 0.4.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
+Version 0.5.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills.
 
 Ask for an interview (grill-me), a discovery questionnaire (to-questionnaire),
-a clearer explanation (wait-what), or a conversation handoff (handoff).
-The four adapted workflows require explicit user intent.
+a clearer explanation (wait-what), a conversation handoff (handoff),
+or critical review and correction (critique-revise).
+The four adapted workflows and critique-revise require explicit user intent.
 Meta-conv-filter can run implicitly for standalone final deliverables and can
 also be requested directly. It removes revision traces, conversation references,
 and missing-context dependencies while preserving substantive facts and limits.

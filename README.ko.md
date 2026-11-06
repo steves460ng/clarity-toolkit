@@ -6,24 +6,6 @@
 
 [Matt Pocock의 skills](https://github.com/mattpocock/skills) 중 원본 스킬 5개를 바탕으로 한 워크플로 4개와 독자적인 메타대화 필터로 구성된 ChatGPT용 비공식 프로젝트입니다.
 
-## Claude에서 쓰려면
-
-Claude용 포팅판은 [`claude/`](claude/README.md) 폴더에 있습니다. 스킬은 5개로, `grill-me`, `to-questionnaire`, `wait-what`, `handoff`, `meta-conv-filter`입니다. 각 `SKILL.md`는 다른 파일 없이 단독으로 동작합니다. 이 README의 나머지 내용은 ChatGPT 패키지에 대한 설명입니다.
-
-**Claude 앱:** 대화에 다음 요청을 붙여 넣으세요. Claude가 스킬마다 카드를 보여 주면 저장(Save)을 눌러 추가합니다.
-
-> https://github.com/steves460ng/clarity-toolkit  
-> 이 저장소의 `claude/skills/` 폴더에 있는 스킬 5개(`grill-me`, `to-questionnaire`, `wait-what`, `handoff`, `meta-conv-filter`)를 내 계정에 추가해 줘. 각 `SKILL.md`는 고쳐 쓰지 말고 그대로 사용해 줘. 같은 이름의 스킬이 이미 있으면 중복으로 만들지 말고 저장소 버전과 비교해서 달라진 점을 알려 줘.
-
-**Claude Code:** 세션에 다음 요청을 붙여 넣으세요.
-
-> https://github.com/steves460ng/clarity-toolkit  
-> 이 저장소의 `claude/skills/` 아래 폴더 5개를 `~/.claude/skills/`에 복사해 줘. 같은 이름의 폴더가 이미 있으면 덮어쓰기 전에 차이를 보여 주고 확인을 받아 줘.
-
-설치가 됐는지 확인하려면 새 대화에서 다음처럼 요청해 보세요.
-
-> grill-me로 교육 교안에 대한 인터뷰를 진행해 줘. 한 번에 하나씩 질문해 줘.
-
 ## GitHub에서 플러그인 추가하기
 
 저장소 접근 도구와 플러그인 제작·등록 도구가 제공되는 ChatGPT 환경에서는 이 저장소의 주소를 주고 비공개 플러그인으로 추가해 달라고 요청할 수 있습니다. 이는 패키징과 계정 등록을 도구로 처리하는 방식이며, 모든 ChatGPT에서 GitHub 주소만으로 바로 설치되는 기능은 아닙니다. 사용 가능 여부는 계정, 워크스페이스 정책과 연결된 도구에 따라 달라집니다.
@@ -33,7 +15,7 @@ Claude용 포팅판은 [`claude/`](claude/README.md) 폴더에 있습니다. 스
 필요한 도구가 제공되는 대화에 다음 요청을 붙여 넣으세요.
 
 > https://github.com/steves460ng/clarity-toolkit  
-> 이 저장소의 `clarity-toolkit/` 폴더를 검토하고, 내 ChatGPT 계정에 비공개 플러그인으로 추가해 줘. 같은 플러그인이 이미 있으면 중복 생성하지 말고 저장소 버전과 비교해 줘. MIT 라이선스와 원본 출처를 보존해 줘. 등록 후 플러그인 링크와 5개 스킬 중 등록된 스킬을 알려 주고, 확인한 결과와 아직 검증하지 못한 사항을 구분해 줘.
+> 이 저장소의 `clarity-toolkit/` 폴더를 검토하고, 내 ChatGPT 계정에 비공개 플러그인으로 추가해 줘. 같은 플러그인이 이미 있으면 중복 생성하지 말고 저장소 버전과 비교해 줘. MIT 라이선스와 원본 출처를 보존해 줘. 등록 후 플러그인 링크와 6개 스킬 중 등록된 스킬을 알려 주고, 확인한 결과와 아직 검증하지 못한 사항을 구분해 줘.
 
 설치할 플러그인 소스는 `clarity-toolkit/` 폴더에 있습니다. 저장소 루트에는 개발 도구도 있으므로 저장소 전체를 그대로 플러그인으로 패키징하지 않습니다.
 
@@ -60,6 +42,7 @@ Clarity Toolkit을 이미 추가했다면 다시 등록하지 말고 기존 플�
 | 스킬 | 이런 상황에 사용하세요 |
 | --- | --- |
 | `meta-conv-filter` | 수정 흔적과 대화 의존성을 없애 독립적인 결과물을 만들 때 |
+| `critique-revise` | 답변의 핵심 주장을 검증하고 오류를 정정한 최종 답변을 만들 때 |
 | `grill-me` | 아이디어는 있지만 요구사항을 구체적으로 정하지 못했을 때 |
 | `to-questionnaire` | 다른 사람에게 확인할 내용을 질문지로 정리할 때 |
 | `wait-what` | 앞선 설명이 어렵거나 맥락을 놓쳤을 때 |
@@ -215,3 +198,9 @@ MIT 라이선스로 배포합니다.
 원본 저작권과 허가문을 보존하고 있습니다. 자세한 내용은 [LICENSE](LICENSE)와 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)를 참고하세요.
 
 이 프로젝트는 Matt Pocock과 제휴하거나 공식 승인을 받은 프로젝트가 아닙니다.
+
+## critique-revise — 비판적 검증과 정정
+
+이전 답변이나 초안을 비판적으로 평가할 때 사용합니다. 주요 주장과 근거를 확인하고, 확인된 오류와 아직 검증되지 않은 내용을 구분한 다음 실제로 수정한 답변을 제시합니다. 억지로 결함을 만들거나 검색하지 않은 내용을 검증했다고 주장하지 않습니다.
+
+예시: `critique-revise로 이전 답변의 주요 주장을 검증하고 오류를 정정해 다시 작성해 줘.`

@@ -6,24 +6,6 @@ A collection of ChatGPT skills for clarifying ideas, preparing useful questions,
 
 This unofficial ChatGPT project contains four workflows adapted from five of [Matt Pocock's skills](https://github.com/mattpocock/skills) and an original conversation-context filter.
 
-## Using Claude?
-
-A Claude port with five skills is in [`claude/`](claude/README.md): `grill-me`, `to-questionnaire`, `wait-what`, `handoff`, and `meta-conv-filter`. Each `SKILL.md` is self-contained. The rest of this README covers the ChatGPT package.
-
-**Claude app:** paste this into a conversation. Claude shows each skill as a card; choose Save to add it.
-
-> https://github.com/steves460ng/clarity-toolkit  
-> Add the five skills in this repository's `claude/skills/` folder (`grill-me`, `to-questionnaire`, `wait-what`, `handoff`, `meta-conv-filter`) to my account. Use each `SKILL.md` as written without rewriting it. If a skill with the same name already exists, compare it with the repository version and tell me what changed instead of creating a duplicate.
-
-**Claude Code:** paste this into a session.
-
-> https://github.com/steves460ng/clarity-toolkit  
-> Copy the five folders in this repository's `claude/skills/` into `~/.claude/skills/`. If a folder with the same name already exists, show me the differences and ask before overwriting it.
-
-To check that it works, start a new conversation and try:
-
-> Use grill-me to interview me about a lesson plan. Ask one question at a time.
-
 ## Add the plugin from GitHub
 
 In a ChatGPT environment with repository access and plugin creation or registration tools, you can provide this repository's URL and ask ChatGPT to add it as a private plugin. This is an assisted packaging and registration workflow, not a universal one-click GitHub installer. Availability depends on your account, workspace policy, and connected tools.
@@ -33,7 +15,7 @@ In a ChatGPT environment with repository access and plugin creation or registrat
 Paste this into a conversation with the required tools available:
 
 > https://github.com/steves460ng/clarity-toolkit  
-> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the five skills were registered, and distinguish confirmed results from anything still unverified.
+> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the six skills were registered, and distinguish confirmed results from anything still unverified.
 
 The installable plugin source is in `clarity-toolkit/`. The repository root also contains development tools and should not be packaged wholesale as the plugin.
 
@@ -60,6 +42,7 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 | Skill | When to use it |
 | --- | --- |
 | `meta-conv-filter` | You need a result that stands alone without drafting history or the user-AI conversation. |
+| `critique-revise` | Critically check claims, verify mistakes, and produce a corrected answer. |
 | `grill-me` | You have an idea but have not worked out the requirements. |
 | `to-questionnaire` | You need to organize questions for someone else. |
 | `wait-what` | An explanation is hard to follow or you have lost the context. |
@@ -81,7 +64,7 @@ Native editing depends on the host. If a native writing block is unavailable, th
 
 ### Request a workflow in natural language
 
-After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The four adapted workflows require explicit user invocation; meta-conv-filter also supports implicit final-deliverable cleanup; ask for an interview or questions to organize your thoughts to use `grill-me`.
+After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The four adapted workflows and critique-revise require explicit user invocation; meta-conv-filter also supports implicit final-deliverable cleanup; ask for an interview or questions to organize your thoughts to use `grill-me`.
 
 For example:
 
@@ -192,6 +175,10 @@ For a new session:
 A Markdown handoff that gives the next person enough context to understand and continue the work.
 
 It is not automatically transferred to a new conversation. Paste or provide the document yourself.
+
+## critique-revise — Verify and correct an answer
+
+Use `critique-revise` when you want an answer or draft audited rather than merely rephrased. It checks material claims against available evidence, distinguishes verified errors from unresolved uncertainty, and produces a corrected answer. It does not manufacture faults or claim an independent fact-check without sources. Example: `Use critique-revise to audit your previous answer, verify its key claims, and give me a corrected version.`
 
 ## Use the skills together
 

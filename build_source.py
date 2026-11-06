@@ -187,7 +187,7 @@ skills['critique-revise'] = (
 names = {'meta-conv-filter': 'Meta Conversation Filter', 'grill-me': 'Grill Me', 'to-questionnaire': 'To Questionnaire', 'wait-what': 'Wait What', 'handoff': 'Handoff', 'critique-revise': 'Critique and Revise'}
 shorts = {'meta-conv-filter': 'Make deliverables stand alone', 'grill-me': 'Clarify a plan through interview', 'to-questionnaire': 'Draft a discovery questionnaire', 'wait-what': 'Explain that again with context', 'handoff': 'Prepare a grounded conversation handoff', 'critique-revise': 'Verify and correct an answer'}
 for name, (description, body) in skills.items():
-    write(f'skills/{name}/SKILL.md', '---\n' + yaml.safe_dump({'name': name, 'description': description}, sort_keys=False, width=1000) + '---\n\n' + body.strip() + '\n\n' + ('' if name == 'meta-conv-filter' else common + '\n' + standalone))
+    write(f'skills/{name}/SKILL.md', '---\n' + yaml.safe_dump({'name': name, 'description': description}, sort_keys=False, width=1000) + '---\n\n' + body.strip() + '\n\n' + ('' if name in ('meta-conv-filter', 'critique-revise') else common + '\n' + standalone))
     write(f'skills/{name}/agents/openai.yaml', yaml.safe_dump({'interface': {'display_name': names[name], 'short_description': shorts[name]}, 'policy': {'allow_implicit_invocation': name == 'meta-conv-filter'}}, sort_keys=False))
 
 write('skills/to-questionnaire/references/questionnaire-template.md', '''# <Discovery questionnaire title>

@@ -15,7 +15,7 @@ In a ChatGPT environment with repository access and plugin creation or registrat
 Paste this into a conversation with the required tools available:
 
 > https://github.com/steves460ng/clarity-toolkit  
-> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the six skills were registered, and distinguish confirmed results from anything still unverified.
+> Review the `clarity-toolkit/` folder in this repository and add it to my ChatGPT account as a private plugin. If the same plugin already exists, compare it with the repository version instead of creating a duplicate. Preserve the MIT license and attribution. After registration, provide the plugin link, report which of the seven skills were registered, and distinguish confirmed results from anything still unverified.
 
 The installable plugin source is in `clarity-toolkit/`. The repository root also contains development tools and should not be packaged wholesale as the plugin.
 
@@ -46,6 +46,7 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 | `grill-me` | You have an idea but have not worked out the requirements. |
 | `to-questionnaire` | You need to organize questions for someone else. |
 | `wait-what` | An explanation is hard to follow or you have lost the context. |
+| `juniorize` | Rewrite an expert-level answer or document for junior employees while preserving its accuracy. |
 | `handoff` | You need to continue the work with another person or in a new session. |
 
 ### Edit questions and drafts
@@ -64,7 +65,7 @@ Native editing depends on the host. If a native writing block is unavailable, th
 
 ### Request a workflow in natural language
 
-After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The four adapted workflows and critique-revise require explicit user invocation; meta-conv-filter also supports implicit final-deliverable cleanup; ask for an interview or questions to organize your thoughts to use `grill-me`.
+After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The four adapted workflows, critique-revise, and juniorize require explicit user invocation; meta-conv-filter also supports implicit final-deliverable cleanup; ask for an interview or questions to organize your thoughts to use `grill-me`.
 
 For example:
 
@@ -179,6 +180,12 @@ It is not automatically transferred to a new conversation. Paste or provide the 
 ## critique-revise — Verify and correct an answer
 
 Use `critique-revise` when you want an answer or draft audited rather than merely rephrased. It checks material claims against available evidence, distinguishes verified errors from unresolved uncertainty, and produces a corrected answer. It does not manufacture faults or claim an independent fact-check without sources. Example: `Use critique-revise to audit your previous answer, verify its key claims, and give me a corrected version.`
+
+## juniorize — Make expert content accessible to junior staff
+
+Ask to `juniorize` the previous response or an existing document. The default reader is a junior employee with approximately one to three years of relevant experience. The skill explains essential technical terms, adds context and workplace examples where useful, and preserves facts, figures, qualifications, and citations. It does not automatically simplify unrelated content.
+
+> @Clarity Toolkit Juniorize this report for a new team member. Keep all numbers and key decisions intact.
 
 ## Use the skills together
 

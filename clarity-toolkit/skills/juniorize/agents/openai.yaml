@@ -1,0 +1,5 @@
+interface:
+  display_name: Juniorize
+  short_description: Make expert content clear for junior staff
+policy:
+  allow_implicit_invocation: false

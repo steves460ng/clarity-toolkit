@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [],
+    "defaultPrompt": [
+      "Interview me to clarify my requirements.",
+      "Critically review your previous answer and correct errors.",
+      "Juniorize your previous answer for a junior employee.",
+      "Prepare a handoff from this conversation."
+    ],
+    "developerName": "Clarity Toolkit contributors",
+    "displayName": "Clarity Toolkit",
+    "longDescription": "An unofficial, skills-only toolkit with four workflows adapted from selected Matt Pocock skills, a conversation-context filter, an original critical-review skill, and Juniorize for adapting expert-level answers and documents for junior employees while preserving accuracy. Instructions are in English; responses follow your language. No runtime scripts required.",
+    "shortDescription": "Clarify, review, juniorize and hand off",
+    "category": "Other"
+  },
+  "name": "clarity-toolkit",
+  "version": "0.6.0",
+  "description": "Interview requirements, prepare questionnaires, explain confusing messages, hand off context, filter conversation traces, critically revise answers, and juniorize expert content for less-experienced employees.",
+  "author": {
+    "name": "Clarity Toolkit contributors"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "skills": "./skills"
+}

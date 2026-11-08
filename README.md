@@ -4,11 +4,9 @@
 
 A collection of ChatGPT skills for clarifying ideas, preparing useful questions, understanding complex explanations, and handing work over to the next person.
 
-This unofficial ChatGPT project contains four workflows adapted from five of [Matt Pocock's skills](https://github.com/mattpocock/skills) and an original conversation-context filter.
-
 ## Add the plugin from GitHub
 
-In a ChatGPT environment with repository access and plugin creation or registration tools, you can provide this repository's URL and ask ChatGPT to add it as a private plugin. This is an assisted packaging and registration workflow, not a universal one-click GitHub installer. Availability depends on your account, workspace policy, and connected tools.
+In a ChatGPT environment with repository access and plugin creation or registration tools, you can provide this repository's URL and ask ChatGPT to add it as a private plugin.
 
 ### 1. Request the plugin
 
@@ -27,14 +25,6 @@ Registration alone does not prove that skill invocation works. Once the plugin i
 
 > @Clarity Toolkit Use grill-me to interview me about a lesson plan. Ask one question at a time.
 
-### 3. Reuse or update an existing plugin
-
-If you have already added Clarity Toolkit, use the existing plugin rather than registering it again. To request an update, provide this repository's URL and identify the existing plugin.
-
-Adding a plugin from this repository does not by itself establish automatic synchronization with GitHub. Later repository changes may require a separate update.
-
-If your ChatGPT environment does not provide the required tools, the URL alone cannot install the plugin. Use a supported plugin import workflow available to your account or an environment with plugin creation and registration tools.
-
 ## How to use
 
 Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then describe what you need in natural language. The examples below are prompts, not commands that require a slash-command interface.
@@ -49,27 +39,13 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 | `juniorize` | Reduce a text's complexity while preserving meaning and making the result self-contained. |
 | `handoff` | You need to continue the work with another person or in a new session. |
 
-### Edit questions and drafts
-
-Interview rounds and deliverables request an editable writing block, so you can revise a question, select optional examples, add your own ideas, or change an earlier answer. The interview begins with open exploration rather than a recommended answer to accept. You can reply in prose, skip a question, or keep a decision open.
-
-For example:
-
-> Ask me one open question at a time in a writing block. Leave the answer blank. If choices help, make them optional and let me write my own answer. Do not recommend a solution yet.
-
-To revise a draft:
-
-> Keep the 20-minute duration, change the audience to eight-year-olds, and rewrite Q2 as an open question. Preserve the other answers.
-
-Native editing depends on the host. If a native writing block is unavailable, the plugin provides one copyable text block and states that it is not an interactive editor. Checkboxes in that fallback are text markers, not clickable controls; no autosave or automatic synchronization is implied.
-
 ### Request a workflow in natural language
 
-After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The four adapted workflows, critique-revise, and juniorize require explicit user invocation; meta-conv-filter also supports implicit final-deliverable cleanup; ask for an interview or questions to organize your thoughts to use `grill-me`.
+After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The four workflows are primarily used through explicit requests, while meta-conv-filter also applies during the final pass on standalone deliverables. Ask for an interview or questions to organize your thoughts to use `grill-me`.
 
 For example:
 
-> @Clarity Toolkit I want to create a lesson plan about preventing colds for children. Interview me to help organize my thoughts.
+> @Clarity Toolkit I want to create a lesson plan about preventing colds for children. Run a survey to help me organize my thoughts.
 
 This asks for an interview to clarify your own thinking, so `grill-me` is the suitable skill. It can start with the children's ages, lesson duration, and learning goals, then follow up based on your answers.
 
@@ -79,9 +55,9 @@ For a clearer request:
 
 > @Clarity Toolkit I want to create a lesson plan about preventing colds for children. Before writing it, ask me one question at a time to clarify the audience, learning goals, and activities.
 
-Skill selection depends on the model's interpretation and the host's plugin support; this is not a guarantee of deterministic routing. To make the intended procedure explicit, include its name, such as “Use grill-me to interview me.” These examples illustrate intended usage, not verified installed-host behavior.
+Skill selection depends on the model's interpretation and the host's plugin support; this is not a guarantee of deterministic routing. To make the intended procedure explicit, include its name, such as “Use grill-me to interview me.”
 
-## meta-conv-filter - Make results understandable without the conversation
+## meta-conv-filter - Remove meta-conversation from deliverables or answers.
 
 Meta-conversation includes revision traces, user-AI dialogue references, and anything that only makes sense after reading that dialogue. The filter removes drafting prefaces and rewrites dependent references with the supported content. It runs as a final check for standalone deliverables from the four existing workflows, and you can request it directly: "Use meta-conv-filter to make this document stand alone."
 
@@ -175,19 +151,17 @@ For a new session:
 
 A Markdown handoff that gives the next person enough context to understand and continue the work.
 
-It is not automatically transferred to a new conversation. Paste or provide the document yourself.
-
-## critique-revise — Verify and correct an answer
-
-Use `critique-revise` when you want an answer or draft audited rather than merely rephrased. It checks material claims against available evidence, distinguishes verified errors from unresolved uncertainty, and produces a corrected answer. It does not manufacture faults or claim an independent fact-check without sources. Example: `Use critique-revise to audit your previous answer, verify its key claims, and give me a corrected version.`
-
 ## juniorize — Make complex text easy to understand
 
-Ask to `juniorize` (or `juniorise`) the previous response or an existing document. The skill reduces complexity across subjects without assuming a job or experience level. It explains necessary terms, unpacks dense reasoning, and preserves facts, figures, qualifications, citations, and the document's intended use. Every rewrite applies `meta-conv-filter` before delivery so the result stands on its own without drafting traces or conversation-dependent references. Audience labels are used only when substantively necessary or explicitly requested.
-
-Use `wait-what` to understand an explanation that did not land; use `juniorize` to obtain an accessible rewrite of the text. The two workflows remain separate.
+Ask to `juniorize`, `juniorise`, or “주니어라이즈” the previous response or a document when you want to reduce its complexity. The skill explains necessary terms and background and unpacks dense sentences without assuming a particular job or experience level. It preserves the original facts, figures, conditions, uncertainty, sources, and the document's intended use. Audience labels are used only when substantively necessary or explicitly requested.
 
 > @Clarity Toolkit Juniorize this report. Keep all numbers and key decisions intact.
+
+## critique-revise — Critical review and correction
+
+Use this to critically evaluate a previous answer or draft. The skill checks key claims and evidence, distinguishes confirmed errors from unverified information, and then provides a corrected answer. It does not manufacture faults or claim to have verified information without checking it.
+
+Example: `Use critique-revise to verify the key claims in your previous answer, correct any errors, and rewrite it.`
 
 ## Use the skills together
 
@@ -199,8 +173,6 @@ Use `wait-what` to understand an explanation that did not land; use `juniorize` 
 ## Output format
 
 Questions, explanations, summaries, and handoffs request native editable writing blocks by default. If unsupported, one copyable fenced text block is used with an explicit limitation notice. You can also request another format or, when file tools are available, a `.md` file of the latest draft.
-
-File creation and skill selection and invocation depend on the ChatGPT environment. This plugin does not require a separate MCP server or runtime scripts, and it does not provide permanent storage or automatic memory across sessions.
 
 ## License and attribution
 

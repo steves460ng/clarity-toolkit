@@ -61,7 +61,7 @@ Skill selection depends on the model's interpretation and the host's plugin supp
 
 Meta-conversation includes revision traces, user-AI dialogue references, and anything that only makes sense after reading that dialogue. The filter removes drafting prefaces and rewrites dependent references with the supported content. It can also serve as a final check for standalone deliverables, and you can request it directly: "Use meta-conv-filter to make this document stand alone."
 
-For example, "the improved plan using option two" becomes a plan naming the actual selected approach. Missing information stays unknown or is clarified; facts, uncertainty, sources, work status, and meaningful release versions are preserved. Requested change logs and transcripts retain their history with enough context. Live interview IDs and navigation remain usable. The filter returns the result without an announcement that it removed meta-conversation.
+For example, "the improved plan using option two" becomes a plan naming the actual selected approach. Missing information stays unknown or is clarified; facts, uncertainty, sources, work status, and meaningful release versions are preserved. Requested change logs and transcripts retain their history with enough context. Live interview IDs and navigation remain usable.
 
 ## grill-me — Clarify requirements through an interview
 
@@ -77,7 +77,7 @@ The skill uses decisions already made in the conversation and asks about unresol
 
 You can set the pace:
 
-> Ask one open question at a time. Leave the answer blank and let me add my own ideas or change the question.
+> Ask one question at a time. Leave the answer blank and let me add my own ideas or change the question.
 
 To finish early:
 

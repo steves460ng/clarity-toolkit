@@ -1,5 +1,5 @@
 interface:
   display_name: Juniorize
-  short_description: Make expert content clear for junior staff
+  short_description: Reduce complexity and make text clear
 policy:
   allow_implicit_invocation: false

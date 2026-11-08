@@ -1,9 +1,9 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "author": {
-    "name": "Clarity Toolkit contributors"
+    "name": "Sagong Gil"
   },
-  "description": "Interview requirements, prepare questionnaires, explain confusing messages, hand off context, filter conversation traces, critically revise answers, and juniorize expert content for less-experienced employees.",
+  "description": "Interview requirements, prepare questionnaires, explain confusing messages, hand off context, filter conversation traces, critically revise answers, and simplify complex content into clear, self-contained text.",
   "extensions": {
     "com.openai": {
       "interface": {
@@ -14,14 +14,14 @@
           "Juniorize your previous answer for a junior employee.",
           "Prepare a handoff from this conversation."
         ],
-        "developerName": "Clarity Toolkit contributors",
+        "developerName": "Sagong Gil",
         "displayName": "Clarity Toolkit",
-        "longDescription": "An unofficial, skills-only toolkit with four workflows adapted from selected Matt Pocock skills, a conversation-context filter, an original critical-review skill, and Juniorize for adapting expert-level answers and documents for junior employees while preserving accuracy. Instructions are in English; responses follow your language. No runtime scripts required.",
-        "shortDescription": "Clarify, review, juniorize and hand off"
+        "longDescription": "An unofficial, skills-only toolkit with four workflows adapted from selected Matt Pocock skills, a conversation-context filter, an original critical-review skill, and Juniorize for reducing the complexity of answers and documents while preserving accuracy and applying the conversation-context filter for self-contained results. Instructions are in English; responses follow your language. No runtime scripts required.",
+        "shortDescription": "Clarify, review and simplify"
       }
     }
   },
   "license": "MIT",
   "name": "clarity-toolkit",
-  "version": "0.6.0"
+  "version": "0.6.1"
 }

@@ -46,7 +46,7 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 | `grill-me` | You have an idea but have not worked out the requirements. |
 | `to-questionnaire` | You need to organize questions for someone else. |
 | `wait-what` | An explanation is hard to follow or you have lost the context. |
-| `juniorize` | Rewrite an expert-level answer or document for junior employees while preserving its accuracy. |
+| `juniorize` | Reduce a text's complexity while preserving meaning and making the result self-contained. |
 | `handoff` | You need to continue the work with another person or in a new session. |
 
 ### Edit questions and drafts
@@ -181,11 +181,13 @@ It is not automatically transferred to a new conversation. Paste or provide the 
 
 Use `critique-revise` when you want an answer or draft audited rather than merely rephrased. It checks material claims against available evidence, distinguishes verified errors from unresolved uncertainty, and produces a corrected answer. It does not manufacture faults or claim an independent fact-check without sources. Example: `Use critique-revise to audit your previous answer, verify its key claims, and give me a corrected version.`
 
-## juniorize — Make expert content accessible to junior staff
+## juniorize — Make complex text easy to understand
 
-Ask to `juniorize` the previous response or an existing document. The default reader is a junior employee with approximately one to three years of relevant experience. The skill explains essential technical terms, adds context and workplace examples where useful, and preserves facts, figures, qualifications, and citations. It does not automatically simplify unrelated content.
+Ask to `juniorize` (or `juniorise`) the previous response or an existing document. The skill reduces complexity across subjects without assuming a job or experience level. It explains necessary terms, unpacks dense reasoning, and preserves facts, figures, qualifications, citations, and the document's intended use. Every rewrite applies `meta-conv-filter` before delivery so the result stands on its own without drafting traces or conversation-dependent references. Audience labels are used only when substantively necessary or explicitly requested.
 
-> @Clarity Toolkit Juniorize this report for a new team member. Keep all numbers and key decisions intact.
+Use `wait-what` to understand an explanation that did not land; use `juniorize` to obtain an accessible rewrite of the text. The two workflows remain separate.
+
+> @Clarity Toolkit Juniorize this report. Keep all numbers and key decisions intact.
 
 ## Use the skills together
 

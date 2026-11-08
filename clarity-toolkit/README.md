@@ -1,8 +1,8 @@
 # Clarity Toolkit
 
-Version 0.6.0. An unofficial MIT-licensed adaptation of selected Matt Pocock skills, with additional original workflows.
+Version 0.6.1. An unofficial MIT-licensed adaptation of selected Matt Pocock skills, with additional original workflows.
 
-Ask for an interview (`grill-me`), a discovery questionnaire (`to-questionnaire`), a clearer explanation (`wait-what`), a conversation handoff (`handoff`), a critical review and correction (`critique-revise`), or a junior-friendly rewrite (`juniorize`). Say "Juniorize your previous answer for a junior employee" or ask to adapt a supplied document for junior staff. `juniorize` keeps essential technical terms, facts, numbers, qualifications, and citations while explaining terminology and practical implications.
+Ask for an interview (`grill-me`), a discovery questionnaire (`to-questionnaire`), a clearer explanation (`wait-what`), a conversation handoff (`handoff`), a critical review and correction (`critique-revise`), or a plain-language rewrite (`juniorize`, also requested as "juniorise"). Say "Juniorize this text" or ask to make an answer or document easier to understand. The workflow applies across subjects and does not assume a particular job or experience level. `juniorize` keeps essential technical terms, facts, numbers, qualifications, and citations while explaining terminology and practical implications. Every rewrite applies `meta-conv-filter` before delivery so the result stands on its own without conversation references or revision traces.
 
 The adapted workflows, `critique-revise`, and `juniorize` require explicit user intent. `meta-conv-filter` can run implicitly for standalone final deliverables and can also be requested directly. It removes revision traces, conversation references, and missing-context dependencies while preserving substantive facts and limits. Natural-language requests work without assuming slash-command support.
 

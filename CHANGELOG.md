@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.1
+
+- Refocus `juniorize` on reducing text complexity across subjects without assuming the reader's job, seniority, or years of experience.
+- Avoid unnecessary audience labels and preserve the original genre, facts, figures, qualifications, uncertainty, and citations.
+- Require `meta-conv-filter` before every rewrite to produce a self-contained result without conversation dependencies or drafting traces.
+- Keep `juniorize` and `wait-what` separate; support both `juniorize` and `juniorise` request wording.
+- Synchronize the plugin package and English/Korean usage documentation with the saved 0.6.1 release.
+
 ## 0.5.0
 
 - Add `critique-revise`: evidence-based critical review, material error correction, and a bounded regression check; explicit invocation only.

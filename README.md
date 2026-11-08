@@ -41,7 +41,7 @@ Select Clarity Toolkit in a ChatGPT environment that supports the plugin, then d
 
 ### Request a workflow in natural language
 
-After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. The four workflows are primarily used through explicit requests, while meta-conv-filter also applies during the final pass on standalone deliverables. Ask for an interview or questions to organize your thoughts to use `grill-me`.
+After selecting the plugin with `@`, you can describe your goal without naming a skill every time. The model can use the request's context to apply a suitable workflow. `grill-me`, `to-questionnaire`, `wait-what`, and `handoff` are primarily used through explicit requests, while meta-conv-filter also applies during the final pass on standalone deliverables.
 
 For example:
 
@@ -59,7 +59,7 @@ Skill selection depends on the model's interpretation and the host's plugin supp
 
 ## meta-conv-filter - Remove meta-conversation from deliverables or answers.
 
-Meta-conversation includes revision traces, user-AI dialogue references, and anything that only makes sense after reading that dialogue. The filter removes drafting prefaces and rewrites dependent references with the supported content. It runs as a final check for standalone deliverables from the four existing workflows, and you can request it directly: "Use meta-conv-filter to make this document stand alone."
+Meta-conversation includes revision traces, user-AI dialogue references, and anything that only makes sense after reading that dialogue. The filter removes drafting prefaces and rewrites dependent references with the supported content. It can also serve as a final check for standalone deliverables, and you can request it directly: "Use meta-conv-filter to make this document stand alone."
 
 For example, "the improved plan using option two" becomes a plan naming the actual selected approach. Missing information stays unknown or is clarified; facts, uncertainty, sources, work status, and meaningful release versions are preserved. Requested change logs and transcripts retain their history with enough context. Live interview IDs and navigation remain usable. The filter returns the result without an announcement that it removed meta-conversation.
 
@@ -153,7 +153,7 @@ A Markdown handoff that gives the next person enough context to understand and c
 
 ## juniorize — Make complex text easy to understand
 
-Ask to `juniorize`, `juniorise`, or “주니어라이즈” the previous response or a document when you want to reduce its complexity. The skill explains necessary terms and background and unpacks dense sentences without assuming a particular job or experience level. It preserves the original facts, figures, conditions, uncertainty, sources, and the document's intended use. Audience labels are used only when substantively necessary or explicitly requested.
+Ask to `juniorize`, `juniorise`, or “주니어라이즈” the previous response or a document when you want to reduce its complexity. The skill explains necessary terms and background and unpacks dense sentences without assuming a particular job or experience level. It preserves the original facts, figures, conditions, uncertainty, sources, and the document's intended use.
 
 > @Clarity Toolkit Juniorize this report. Keep all numbers and key decisions intact.
 

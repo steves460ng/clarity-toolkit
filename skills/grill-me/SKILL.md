@@ -7,7 +7,7 @@ description: "Use when the user asks to be interviewed or grilled, or asks for h
 
 Run a requirements interview that helps the user explore before converging. Keep a provisional map of questions and their dependencies, not a fixed decision tree that must be exhausted. The user may add themes, reject a premise, rewrite a question, revisit an answer, or pause without choosing a solution. Do not implement the plan as part of this interview.
 
-While this skill is active, asking questions is the task. Do not cut the interview short to start building, and do not limit yourself to a single question per conversation; keep asking in rounds until the user wants to converge or stop.
+While this skill is active, asking questions is the task. Do not cut the interview short to start building, and do not stop after one question or one round. Keep asking in rounds, across as many replies as needed, until the answers are enough for the summary in step 7: no meaningful questions remain, or the user wants to converge or stop. The per-round limits in Modes still apply.
 
 ## Modes
 

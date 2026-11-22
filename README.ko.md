@@ -29,8 +29,6 @@
 > https://github.com/steves460ng/clarity-toolkit
 > `skills/` 아래의 SKILL.md 4개를 읽고 이 도구에 스킬로 설치해 줘. 같은 이름의 스킬이 이미 있으면 새로 만들지 말고 업데이트해 줘. 이 도구에서 스킬을 설치할 수 없으면, 각 파일을 어디에 두거나 사용자 지정 지침으로 어떻게 추가하면 되는지 알려 줘. 다른 설정은 바꾸지 마.
 
-Claude Code 플러그인 매니페스트가 포함된 Claude 전용판은 [clarity-toolkit-claude](https://github.com/steves460ng/clarity-toolkit-claude)에 있습니다.
-
 ## 사용 방법
 
 자연어로 요청하세요. 스킬 이름을 함께 적으면 원하는 절차가 더 확실하게 선택됩니다.

@@ -29,8 +29,6 @@ If the assistant can read GitHub and add skills or instructions in your tool, pa
 > https://github.com/steves460ng/clarity-toolkit
 > Read the four SKILL.md files under `skills/` and install them as skills in this tool. If a skill with the same name already exists, update it instead of creating a duplicate. If this tool cannot install skills, tell me where to put each file or how to add it as a custom instruction instead. Do not change any other settings.
 
-A Claude-specific edition with a Claude Code plugin manifest is available at [clarity-toolkit-claude](https://github.com/steves460ng/clarity-toolkit-claude).
-
 ## Usage
 
 Ask in natural language. Naming the skill makes the choice explicit.

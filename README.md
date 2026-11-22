@@ -22,6 +22,13 @@ Each skill is a single, self-contained file at `skills/<name>/SKILL.md`, with a 
 - **Tools that load `SKILL.md` skills:** copy each `skills/<name>/` folder into the tool's skills directory, or add the skills through its settings. Check the tool's documentation for the location.
 - **Tools without skill support:** paste the body of a `SKILL.md` into a custom instruction, system prompt, or project instruction, or attach it to a conversation and ask the assistant to follow it.
 
+### Install with a prompt
+
+If the assistant can read GitHub and add skills or instructions in your tool, paste this into a conversation:
+
+> https://github.com/steves460ng/clarity-toolkit
+> Read the four SKILL.md files under `skills/` and install them as skills in this tool. If a skill with the same name already exists, update it instead of creating a duplicate. If this tool cannot install skills, tell me where to put each file or how to add it as a custom instruction instead. Do not change any other settings.
+
 A Claude-specific edition with a Claude Code plugin manifest is available at [clarity-toolkit-claude](https://github.com/steves460ng/clarity-toolkit-claude).
 
 ## Usage

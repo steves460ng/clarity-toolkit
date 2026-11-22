@@ -2,16 +2,15 @@
 
 [한국어 README](README.ko.md)
 
-Four conversation skills for AI assistants: clarify an idea through an interview, prepare questions for someone who holds the answers, turn a draft into standalone final text, and hand work over to the next person or session.
+Three conversation skills for AI assistants: clarify an idea or stress-test a plan through an interview, prepare questions for someone who holds the answers, and hand work over to the next person or session.
 
 | Skill | Use it when |
 | --- | --- |
-| `grill-me` | You have an idea or plan but have not worked out the requirements. |
+| `grill-me` | You have an idea or plan but have not worked out the requirements, or you want a finished plan challenged. |
 | `to-question` | An expert, vendor, customer, or colleague holds facts or decisions you need. |
-| `meta-conv-filter` | A draft revised in a conversation must make sense to someone who never saw that conversation. |
 | `handoff` | Work continues with another person, agent, or a new session, or you are resuming from a handoff. |
 
-Each skill counters a common assistant habit: starting to build instead of interviewing, asking the user the recipient's questions instead of drafting a questionnaire for the recipient, leaving references such as "as discussed" in final text, and blurring proposed plans with completed work.
+Each skill counters a common assistant habit: starting to build instead of interviewing, asking the user the recipient's questions instead of drafting a questionnaire for the recipient, and blurring proposed plans with completed work.
 
 The skills are written in plain Markdown and do not depend on a particular model, app, or service. Where a skill can use a capability such as an editable document, it also says what to do when the capability is missing.
 
@@ -27,7 +26,7 @@ Each skill is a single, self-contained file at `skills/<name>/SKILL.md`, with a 
 If the assistant can read GitHub and add skills or instructions in your tool, paste this into a conversation:
 
 > https://github.com/steves460ng/clarity-toolkit
-> Read the four SKILL.md files under `skills/` and install them as skills in this tool. If a skill with the same name already exists, update it instead of creating a duplicate. If this tool cannot install skills, tell me where to put each file or how to add it as a custom instruction instead. Do not change any other settings.
+> Read the three SKILL.md files under `skills/` and install them as skills in this tool. If a skill with the same name already exists, update it instead of creating a duplicate. If this tool cannot install skills, tell me where to put each file or how to add it as a custom instruction instead. Do not change any other settings.
 
 ## Usage
 
@@ -39,7 +38,9 @@ Ask in natural language. Naming the skill makes the choice explicit.
 
 By default, the assistant asks one or two questions at a time in the chat, which stays easy to read on a phone. Prerequisite decisions come first (who the users are before how they log in). For a full survey, say "survey mode" or "ask me everything at once"; the word "survey" alone does not switch modes. The assistant then asks 10–15 questions per round, grouped by theme, for up to three rounds (round 1 maps the topic, round 2 goes deeper, round 3 closes the gaps), and more rounds are available on request. When the session can create an editable document, the survey goes into one so you can type answers directly under each question; later rounds are added to the same document. Answer in prose or by question ID, answer only some questions, skip a question, or rewrite it. Say "stop here and summarize" at any time.
 
-**What you get:** a summary of the goal, main users, scope, accepted decisions, constraints, and open questions. Confirming the summary does not authorize implementation.
+For a short session, say "quick": at most five questions, then two challenge points. Before the summary, the assistant runs a challenge round that tests the plan: unverified assumptions, conflicting decisions, failure scenarios, and missing stakeholders or costs. Accept, rebut, or defer each point. If you bring a finished plan and ask to have it grilled, the assistant skips the exploration, lists the decisions it read from the plan so you can correct them, and goes straight to repeated challenge rounds.
+
+**What you get:** a summary of the goal, main users, scope, accepted decisions, constraints, challenge outcomes, and open questions. For a finished plan, decisions are grouped into held, revised, and still at risk. Confirming the summary does not authorize implementation.
 
 ### to-question — Prepare questions for someone else
 
@@ -48,14 +49,6 @@ By default, the assistant asks one or two questions at a time in the chat, which
 The assistant drafts the document instead of asking you questions you cannot answer yourself. It asks at most two short questions first, and only when the recipient or the purpose is unclear. High-impact questions come first, each with a blank answer field. Deadlines and names are never invented. The questionnaire can be in a different language from the conversation.
 
 **What you get:** a questionnaire with its purpose, recipient, context, answering instructions, and grouped questions. The assistant drafts it but does not send it.
-
-### meta-conv-filter — Make text stand on its own
-
-> Use meta-conv-filter to make this plan readable without our conversation.
-
-Removes revision traces ("improved version") and conversation references ("as discussed"), and replaces pointers such as "option two" with the actual decision. Missing information is marked as not specified rather than invented. Facts, numbers, uncertainty, and sources are kept.
-
-**What you get:** the cleaned text itself, without a preface about what was removed.
 
 ### handoff — Pass the work on
 
@@ -69,15 +62,14 @@ Separates confirmed decisions, completed work with evidence, proposals, open que
 
 1. Clarify the idea with `grill-me`.
 2. Put questions that need someone else's input into a document with `to-question`.
-3. Turn the summary or resulting draft into final text with `meta-conv-filter`.
-4. Pass the work on with `handoff`.
+3. Pass the work on with `handoff`.
 
 ## Output
 
-Interview rounds appear in the chat. Summaries, questionnaires, final text, and handoffs are created as an editable document when the session supports it; otherwise they come as one copyable Markdown block. A `.md` file is created only on request.
+Interview rounds appear in the chat. Summaries, questionnaires, and handoffs are created as an editable document when the session supports it; otherwise they come as one copyable Markdown block. A `.md` file is created only on request.
 
 ## License and attribution
 
-MIT License. `grill-me`, `to-question`, and `handoff` are adapted from [Matt Pocock's skills](https://github.com/mattpocock/skills); `meta-conv-filter` is original to Clarity Toolkit. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+MIT License. `grill-me`, `to-question`, and `handoff` are adapted from [Matt Pocock's skills](https://github.com/mattpocock/skills). See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 This project is not affiliated with or endorsed by Matt Pocock or any AI provider.

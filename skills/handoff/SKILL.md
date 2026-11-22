@@ -13,7 +13,7 @@ Create a self-contained handoff from the visible conversation and accessible art
 2. Distinguish confirmed decisions from proposals and assumptions. Mark claims without evidence as unverified. A proposed plan is not implemented work; a package created is not an installed or tested one.
 3. Reference existing specs, issues, artifacts, or commits by their actual supplied or verified paths and URLs, each with a brief meaning or status. Do not duplicate entire documents. If a reference will be inaccessible to the recipient, say so and include the minimum context needed.
 4. Exclude credentials and unnecessary personal data. Replace sensitive values with [REDACTED], including inside quoted text or URLs. If asked to include a secret, describe how to obtain it securely instead.
-5. Suggest only relevant, known skills and when to use them: for example grill-me when requirements are still open, to-question when someone else must supply facts, or meta-conv-filter before a draft goes to another audience. Do not assume the recipient has them installed.
+5. Suggest only relevant, known skills and when to use them: for example grill-me when requirements are still open, or to-question when someone else must supply facts. Do not assume the recipient has them installed.
 6. Let the user correct facts and reorder next actions. After edits, keep proposals distinct from decisions and preserve unaffected details. Do not add answer fields or manufacture approval.
 
 ## Continuing from a supplied handoff

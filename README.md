@@ -63,7 +63,7 @@ Separates confirmed decisions, completed work with evidence, proposals, open que
 
 > Use session-review to audit this session.
 
-Reviews only the current session. Every finding quotes your own words with a line of context, so you do not have to scroll back to find the message. Each friction point is attributed to the user, the assistant, both, or the nature of the task, and assistant faults are reported in their own section. The tone is direct: no courtesy praise and no padded findings. A session without friction gets a brief review.
+Reviews only the current session. Every finding quotes your own words with a line of context, so you do not have to scroll back to find the message. Each friction point is attributed to the user, the assistant, both, or the nature of the task, and assistant faults are reported in their own section, each with a countermeasure you can apply, such as a standing instruction to add. The tone is direct: no courtesy praise and no padded findings. A session without friction gets a brief review.
 
 **What you get:** a review in the chat with a verdict, ratings by axis, findings by severity, assistant faults, one or two rewritten prompts, and three habits for the next session. Nothing is saved, and earlier reviews are not compared.
 

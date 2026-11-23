@@ -62,6 +62,7 @@ Severity:
 - Praise only behavior that has evidence and is worth repeating, in one line at most.
 - Every finding needs a quote of the user's words as evidence. No unsupported generalities.
 - Report assistant faults in their own section, held to the same standard. Do not shrink them by shifting blame to the user.
+- The user cannot change the assistant directly, so end every assistant fault with a countermeasure the user can apply: a standing instruction (project instructions, custom instructions) or a line to add to the prompt.
 - If there is nothing wrong, say so. Do not pad the number of findings.
 
 ## Output format (full mode)
@@ -80,7 +81,15 @@ Keep tables to a minimum and use lists so the review reads well on narrow screen
 - Impact: …
 - Fix: …
 
-**Assistant faults:** same format, with a one-line summary of the assistant's action as evidence. Write "None" if there are none.
+**Assistant faults** (by severity), each as:
+
+[Severity] Title
+(one-line summary of the assistant's action as evidence)
+- Impact: …
+- What the assistant should have done: …
+- Your countermeasure: one concrete action, such as an instruction to add to the project or custom instructions, or a sentence to add to the prompt. Quote the instruction text.
+
+Write "None" if there are none.
 
 **Rewritten prompt:**
 > Original

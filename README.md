@@ -2,15 +2,16 @@
 
 [한국어 README](README.ko.md)
 
-Three conversation skills for AI assistants: clarify an idea or stress-test a plan through an interview, prepare questions for someone who holds the answers, and hand work over to the next person or session.
+Four conversation skills for AI assistants: clarify an idea or stress-test a plan through an interview, prepare questions for someone who holds the answers, hand work over to the next person or session, and audit how a session went.
 
 | Skill | Use it when |
 | --- | --- |
 | `grill-me` | You have an idea or plan but have not worked out the requirements, or you want a finished plan challenged. |
 | `to-question` | An expert, vendor, customer, or colleague holds facts or decisions you need. |
 | `handoff` | Work continues with another person, agent, or a new session, or you are resuming from a handoff. |
+| `session-review` | You want an audit of your prompts and session management in the current session. |
 
-Each skill counters a common assistant habit: starting to build instead of interviewing, asking the user the recipient's questions instead of drafting a questionnaire for the recipient, and blurring proposed plans with completed work.
+Each skill counters a common assistant habit: starting to build instead of interviewing, asking the user the recipient's questions instead of drafting a questionnaire for the recipient, blurring proposed plans with completed work, and glossing over what went wrong in a session.
 
 The skills are written in plain Markdown and do not depend on a particular model, app, or service. Where a skill can use a capability such as an editable document, it also says what to do when the capability is missing.
 
@@ -26,7 +27,7 @@ Each skill is a single, self-contained file at `skills/<name>/SKILL.md`, with a 
 If the assistant can read GitHub and add skills or instructions in your tool, paste this into a conversation:
 
 > https://github.com/steves460ng/clarity-toolkit
-> Read the three SKILL.md files under `skills/` and install them as skills in this tool. If a skill with the same name already exists, update it instead of creating a duplicate. If this tool cannot install skills, tell me where to put each file or how to add it as a custom instruction instead. Do not change any other settings.
+> Read the four SKILL.md files under `skills/` and install them as skills in this tool. If a skill with the same name already exists, update it instead of creating a duplicate. If this tool cannot install skills, tell me where to put each file or how to add it as a custom instruction instead. Do not change any other settings.
 
 ## Usage
 
@@ -58,18 +59,27 @@ Separates confirmed decisions, completed work with evidence, proposals, open que
 
 **What you get:** a handoff document the next person or session can continue from. A new conversation does not remember earlier ones unless the tool provides memory; carry the handoff over yourself.
 
+### session-review — Audit the current session
+
+> Use session-review to audit this session.
+
+Reviews only the current session. Every finding quotes your own words with a line of context, so you do not have to scroll back to find the message. Each friction point is attributed to the user, the assistant, both, or the nature of the task, and assistant faults are reported in their own section. The tone is direct: no courtesy praise and no padded findings. A session without friction gets a brief review.
+
+**What you get:** a review in the chat with a verdict, ratings by axis, findings by severity, assistant faults, one or two rewritten prompts, and three habits for the next session. Nothing is saved, and earlier reviews are not compared.
+
 ## Use them together
 
 1. Clarify the idea with `grill-me`.
 2. Put questions that need someone else's input into a document with `to-question`.
 3. Pass the work on with `handoff`.
+4. Check how the session went with `session-review`.
 
 ## Output
 
-Interview rounds appear in the chat. Summaries, questionnaires, and handoffs are created as an editable document when the session supports it; otherwise they come as one copyable Markdown block. A `.md` file is created only on request.
+Interview rounds and session reviews appear in the chat. Summaries, questionnaires, and handoffs are created as an editable document when the session supports it; otherwise they come as one copyable Markdown block. A `.md` file is created only on request.
 
 ## License and attribution
 
-MIT License. `grill-me`, `to-question`, and `handoff` are adapted from [Matt Pocock's skills](https://github.com/mattpocock/skills). See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+MIT License. `grill-me`, `to-question`, and `handoff` are adapted from [Matt Pocock's skills](https://github.com/mattpocock/skills). `session-review` is original to this project. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 This project is not affiliated with or endorsed by Matt Pocock or any AI provider.

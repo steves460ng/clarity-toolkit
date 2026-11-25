@@ -2,7 +2,7 @@
 
 [한국어 README](README.ko.md)
 
-Four conversation skills for AI assistants: clarify an idea or stress-test a plan through an interview, prepare questions for someone who holds the answers, hand work over to the next person or session, and audit how a session went.
+Five skills for AI assistants: clarify an idea or stress-test a plan through an interview, prepare questions for someone who holds the answers, hand work over to the next person or session, audit how a session went, and remove AI tells from Korean text.
 
 | Skill | Use it when |
 | --- | --- |
@@ -10,8 +10,9 @@ Four conversation skills for AI assistants: clarify an idea or stress-test a pla
 | `to-question` | An expert, vendor, customer, or colleague holds facts or decisions you need. |
 | `handoff` | Work continues with another person, agent, or a new session, or you are resuming from a handoff. |
 | `session-review` | You want an audit of your prompts and session management in the current session. |
+| `korean-humanizer` | Korean text reads as AI-written, or you want AI tells in Korean text found or the text fitted to a target length. |
 
-Each skill counters a common assistant habit: starting to build instead of interviewing, asking the user the recipient's questions instead of drafting a questionnaire for the recipient, blurring proposed plans with completed work, and glossing over what went wrong in a session.
+Each skill counters a common assistant habit: starting to build instead of interviewing, asking the user the recipient's questions instead of drafting a questionnaire for the recipient, blurring proposed plans with completed work, glossing over what went wrong in a session, and writing Korean in translationese and stock AI phrases.
 
 The skills are written in plain Markdown and do not depend on a particular model, app, or service. Where a skill can use a capability such as an editable document, it also says what to do when the capability is missing.
 
@@ -27,7 +28,7 @@ Each skill is a single, self-contained file at `skills/<name>/SKILL.md`, with a 
 If the assistant can read GitHub and add skills or instructions in your tool, paste this into a conversation:
 
 > https://github.com/steves460ng/clarity-toolkit
-> Read the four SKILL.md files under `skills/` and install them as skills in this tool. If a skill with the same name already exists, update it instead of creating a duplicate. If this tool cannot install skills, tell me where to put each file or how to add it as a custom instruction instead. Do not change any other settings.
+> Read the five SKILL.md files under `skills/` and install them as skills in this tool. If a skill with the same name already exists, update it instead of creating a duplicate. If this tool cannot install skills, tell me where to put each file or how to add it as a custom instruction instead. Do not change any other settings.
 
 ## Usage
 
@@ -67,6 +68,14 @@ Reviews only the current session. Every finding quotes your own words with a lin
 
 **What you get:** a review in the chat with a verdict, ratings by axis, findings by severity, assistant faults, one or two rewritten prompts, and three habits for the next session. Nothing is saved, and earlier reviews are not compared.
 
+### korean-humanizer — Remove AI tells from Korean text
+
+> Use korean-humanizer to make this text read less like AI: (paste the Korean text)
+
+The assistant scans the text with a catalog of Korean AI tells (translationese such as "~을 통해" and "가지고 있다", double passives, stock phrases such as "다채로운" and "자리매김", commas after connective endings, rules of three, dashes and emoji, chatbot leftovers), grades each by severity (S1–S3), and rewrites only the detected spans. Proper nouns, figures, dates, and quotations stay unchanged, and the genre and speech level are kept. A change rate above 30% triggers a warning; above 50%, the rewrite stops. Ask "find the AI tells only" for a diagnosis without edits, add a target length ("1000자로") to fit the text to it, or provide a writing sample to rewrite in your voice.
+
+**What you get:** the final text, the tells that remain with their severity, a one-line summary of changes, and a grade from A to D. With a target length, the final character counts with and without spaces.
+
 ## Use them together
 
 1. Clarify the idea with `grill-me`.
@@ -74,12 +83,14 @@ Reviews only the current session. Every finding quotes your own words with a lin
 3. Pass the work on with `handoff`.
 4. Check how the session went with `session-review`.
 
+Use `korean-humanizer` on any Korean draft before you send it.
+
 ## Output
 
-Interview rounds and session reviews appear in the chat. Summaries, questionnaires, and handoffs are created as an editable document when the session supports it; otherwise they come as one copyable Markdown block. A `.md` file is created only on request.
+Interview rounds, session reviews, and Korean rewrites appear in the chat. Summaries, questionnaires, and handoffs are created as an editable document when the session supports it; otherwise they come as one copyable Markdown block. A `.md` file is created only on request.
 
 ## License and attribution
 
-MIT License. `grill-me`, `to-question`, and `handoff` are adapted from [Matt Pocock's skills](https://github.com/mattpocock/skills). `session-review` is original to this project. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+MIT License. `grill-me`, `to-question`, and `handoff` are adapted from [Matt Pocock's skills](https://github.com/mattpocock/skills). `korean-humanizer` is adapted from `korean-humanizer` in [NomaDamas/k-skill](https://github.com/NomaDamas/k-skill), whose method comes from [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai). `session-review` is original to this project. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-This project is not affiliated with or endorsed by Matt Pocock or any AI provider.
+This project is not affiliated with or endorsed by Matt Pocock, the k-skill or im-not-ai maintainers, or any AI provider.
